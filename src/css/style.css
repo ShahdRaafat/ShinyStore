@@ -1,0 +1,87 @@
+@import "./nav.css";
+@import "./landing.css";
+@import "./products.css";
+
+:root {
+  --pinkColor: #ff87b9;
+  --mainColor: #e04660;
+  --cuteColor: #f9e3e6;
+  --secondaryColor: #fae8e0;
+  --whiteColor: #fbf8f7;
+  --hotpinkColor: #fc408f;
+  --blackColor: #232323;
+}
+a {
+  text-decoration: none;
+}
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  /* font-family: "Roboto ", sans-serif; */
+  font-family: "Delius", cursive;
+  color: var(--textColor);
+  background-color: var(--whiteColor);
+  /* background-color: #fff3ec; */
+}
+h2 {
+  font-family: "Playwrite GB S", cursive;
+}
+header h2 {
+  color: var(--hotpinkColor);
+  text-align: center;
+  margin: 20px;
+  font-size: 30px;
+}
+button {
+  cursor: pointer;
+}
+section {
+  margin: 40px 0px;
+}
+ul {
+  list-style: none;
+}
+/* .lazy {
+  filter: blur(20px);
+} */
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 800px;
+  }
+}
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+.btn {
+  padding: 12px;
+  background-color: var(--hotpinkColor);
+  border: none;
+  color: #f9e3e6;
+  display: inline-block;
+  width: 140px;
+  transition: 0.4s;
+  border-radius: 25px;
+}
+.btn:hover {
+  background-color: var(--blackColor);
+  color: var(--hotpinkColor);
+}
