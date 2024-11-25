@@ -31,7 +31,7 @@
     <title>Shiny Store</title>
 
     <!-- JS Link -->
-    <script type="module" src="/src/js/script.js"></script>
+    <!-- <script type="module" src="/src/js/script.js"></script> -->
   </head>
   <body>
     <header>
@@ -101,7 +101,6 @@
           <div class="landing-image">
             <img
               src="src/images/landing.webp"
-              data-src="src/images/landing.jpg"
               alt="landing page image"
               class="lazy"
             />
@@ -131,16 +130,17 @@
           <div class="products-container">
             <div class="product product-1">
               <div class="product-overlay">
-                <div class="product-buttons hidden" data-src="1">
+                <div class="product-buttons" data-src="1">
                   <button class="btn fa-regular fa-eye"></button>
                   <button class="btn fa-solid fa-cart-shopping cart"></button>
                 </div>
 
                 <img
-                  src="src/images/product1.webp"
-                  class="product-image"
+                  src="src/images/product1-compressed.webp"
+                  class="product-image lazy-img"
                   alt="Image of product 1"
-                  data-src="1"
+                  data-src="src/images/product1.webp"
+                  data-num="1"
                 />
               </div>
               <div class="text">
@@ -149,20 +149,21 @@
                   <p class="price">200 LE</p>
                 </div>
 
-                <i class="fa-solid fa-heart"></i>
+                <i class="fa-regular fa-heart"></i>
               </div>
             </div>
             <div class="product product-2">
               <div class="product-overlay">
-                <div class="product-buttons hidden" data-src="2">
+                <div class="product-buttons" data-src="2">
                   <button class="btn fa-regular fa-eye"></button>
                   <button class="btn fa-solid fa-cart-shopping cart"></button>
                 </div>
                 <img
-                  src="src/images/product2.webp"
-                  class="product-image"
+                  src="src/images/product2-compressed.webp"
+                  class="product-image lazy-img"
                   alt="Image of product 2"
-                  data-src="2"
+                  data-src="src/images/product2.webp"
+                  data-num="2"
                 />
               </div>
               <div class="text">
@@ -171,20 +172,21 @@
                   <p class="price">350 LE</p>
                 </div>
 
-                <i class="fa-solid fa-heart"></i>
+                <i class="fa-regular fa-heart"></i>
               </div>
             </div>
             <div class="product product-3">
               <div class="product-overlay">
-                <div class="product-buttons hidden" data-src="3">
+                <div class="product-buttons" data-src="3">
                   <button class="btn fa-regular fa-eye"></button>
                   <button class="btn fa-solid fa-cart-shopping cart"></button>
                 </div>
                 <img
-                  src="src/images/product3.webp"
-                  class="product-image"
+                  src="src/images/product3-compressed.webp"
+                  class="product-image lazy-img"
                   alt="Image of product 3"
-                  data-src="3"
+                  data-src="src/images/product3.webp"
+                  data-num="3"
                 />
               </div>
               <div class="text">
@@ -193,20 +195,21 @@
                   <p class="price">250 LE</p>
                 </div>
 
-                <i class="fa-solid fa-heart"></i>
+                <i class="fa-regular fa-heart"></i>
               </div>
             </div>
             <div class="product product-4">
               <div class="product-overlay">
-                <div class="product-buttons hidden" data-src="4">
+                <div class="product-buttons h" data-src="4">
                   <button class="btn fa-regular fa-eye"></button>
                   <button class="btn fa-solid fa-cart-shopping cart"></button>
                 </div>
                 <img
-                  src="src/images/product4.webp"
-                  class="product-image"
+                  src="src/images/product4-compressed.webp"
+                  class="product-image lazy-img"
                   alt="Image of product 4"
-                  data-src="4"
+                  data-src="src/images/product4.webp"
+                  data-num="4"
                 />
               </div>
               <div class="text">
@@ -215,19 +218,20 @@
                   <p class="price">150 LE</p>
                 </div>
 
-                <i class="fa-solid fa-heart"></i>
+                <i class="fa-regular fa-heart"></i>
               </div>
             </div>
             <div class="product product-5">
               <div class="product-overlay">
-                <div class="product-buttons hidden" data-src="5">
+                <div class="product-buttons" data-src="5">
                   <button class="btn fa-regular fa-eye"></button>
                   <button class="btn fa-solid fa-cart-shopping cart"></button>
                 </div>
                 <img
-                  src="src/images/product5.webp"
-                  class="product-image"
-                  data-src="5"
+                  src="src/images/product5-compressed.webp"
+                  class="product-image lazy-img"
+                  data-src="src/images/product5.webp"
+                  data-num="5"
                   alt="Image of product 5"
                 />
               </div>
@@ -237,20 +241,21 @@
                   <p class="price">500 LE</p>
                 </div>
 
-                <i class="fa-solid fa-heart"></i>
+                <i class="fa-regular fa-heart"></i>
               </div>
             </div>
             <div class="product product-6">
               <div class="product-overlay">
-                <div class="product-buttons hidden" data-src="6">
+                <div class="product-buttons" data-src="6">
                   <button class="btn fa-regular fa-eye"></button>
                   <button class="btn fa-solid fa-cart-shopping cart"></button>
                 </div>
                 <img
-                  src="src/images/product6.webp"
-                  class="product-image"
+                  src="src/images/product6-compressed.webp"
+                  class="product-image lazy-img"
                   alt="Image of product 6"
-                  data-src="6"
+                  data-src="src/images/product6.webp"
+                  data-num="6"
                 />
               </div>
               <div class="text">
@@ -265,5 +270,6 @@
         </div>
       </section>
     </main>
+    <script type="module" src="/src/js/script.js"></script>
   </body>
 </html>

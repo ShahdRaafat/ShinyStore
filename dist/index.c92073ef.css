@@ -288,6 +288,10 @@ nav {
   display: flex;
 }
 
+.landing-end .fa-heart {
+  color: var(--whiteColor) !important;
+}
+
 .products header p {
   text-align: center;
   margin-bottom: 20px;
@@ -316,7 +320,6 @@ nav {
 }
 
 .products-container img:hover {
-  opacity: .5;
   cursor: pointer;
 }
 
@@ -330,7 +333,8 @@ nav {
 }
 
 .product-overlay:hover .product-buttons {
-  display: flex;
+  opacity: 1;
+  transform: translateY(0)translateX(-50%);
 }
 
 .product-overlay:hover img {
@@ -339,17 +343,15 @@ nav {
 
 .product-buttons {
   z-index: 100;
+  opacity: 0;
   flex-direction: column;
   row-gap: 20px;
+  transition: all .3s;
   display: flex;
   position: absolute;
   top: 35%;
   left: 50%;
-  transform: translate(-50%);
-}
-
-.product-buttons.hidden {
-  display: none;
+  transform: translateY(-50px)translateX(-50%);
 }
 
 .product-buttons button {
@@ -374,12 +376,21 @@ nav {
   font-size: 20px;
 }
 
-.fa-heart {
+.fa-regular.fa-heart {
   color: #000;
 }
 
-.fa-heart:hover {
+.fa-regular.fa-heart:hover, .fa-solid.fa-heart {
   color: #ce0606;
+}
+
+.lazy-img {
+  filter: blur(10px);
+  transition: filter .3s;
+}
+
+img:not(.lazy-img) {
+  filter: none;
 }
 
 :root {

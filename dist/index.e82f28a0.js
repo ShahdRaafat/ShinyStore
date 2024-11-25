@@ -584,6 +584,20 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"dV6cC":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+// const productBtn = document.querySelector(".product-buttons");
+var _product1Webp = require("../images/product1.webp");
+var _product1WebpDefault = parcelHelpers.interopDefault(_product1Webp);
+var _product2Webp = require("../images/product2.webp");
+var _product2WebpDefault = parcelHelpers.interopDefault(_product2Webp);
+var _product3Webp = require("../images/product3.webp");
+var _product3WebpDefault = parcelHelpers.interopDefault(_product3Webp);
+var _product4Webp = require("../images/product4.webp");
+var _product4WebpDefault = parcelHelpers.interopDefault(_product4Webp);
+var _product5Webp = require("../images/product5.webp");
+var _product5WebpDefault = parcelHelpers.interopDefault(_product5Webp);
+var _product6Webp = require("../images/product6.webp");
+var _product6WebpDefault = parcelHelpers.interopDefault(_product6Webp);
 const menu = document.querySelector(".menu");
 const items = document.querySelector(".items");
 const links = document.querySelector(".links");
@@ -592,8 +606,8 @@ const loginBtn = document.querySelector(".login--btn");
 const loginModal = document.querySelector(".login-modal");
 const loginOverlay = document.querySelector(".login-overlay");
 const closeIcon = document.querySelector(".close-icon");
-const images = document.querySelectorAll(".product-image");
-// const productBtn = document.querySelector(".product-buttons");
+// const images = document.querySelectorAll(".product-image");
+const hearts = document.querySelectorAll(".product .fa-heart");
 //nav menu
 function toggleMenu() {
     items.classList.toggle("show");
@@ -601,23 +615,6 @@ function toggleMenu() {
     join.classList.toggle("show");
 }
 menu.addEventListener("click", toggleMenu);
-// lazy loading
-// const imgTargets = document.querySelectorAll("img[data-src]");
-// const lazyloading = function (entries, observer) {
-//   const [entry] = entries;
-//   console.log(entry);
-//   if (!entry.isIntersecting) return;
-//   entry.target.src = entry.target.dataset.src;
-//   entry.target.addEventListener("load", function () {
-//     this.classList.remove("lazy");
-//   });
-// };
-// const imgObserver = new IntersectionObserver(lazyloading, {
-//   root: null,
-//   threshold: 0,
-//   rootMargin: "200px",
-// });
-// imgTargets.forEach((img) => imgObserver.observe(img));
 //Show Login Form
 const showModal = function() {
     loginModal.classList.remove("hidden");
@@ -631,22 +628,159 @@ loginBtn.addEventListener("click", showModal);
 closeIcon.addEventListener("click", hideModal);
 // loginOverlay.addEventListener("click", hideModal);
 //Product transition
-console.log(images); // images.forEach((img) => {
- //   img.addEventListener("mouseover", function () {
- //     const photoNum = img.dataset.src;
- //     console.log(photoNum);
- //     document
- //       .querySelector(`div[data-src="${photoNum}"]`)
- //       .classList.remove("hidden");
- //   });
- //   img.addEventListener("mouseout", function () {
- //     const photoNum = img.dataset.src;
- //     console.log(photoNum);
- //     document
- //       .querySelector(`div[data-src="${photoNum}"]`)
- //       .classList.add("hidden");
- //   });
- // });
+// console.log(images);
+// images.forEach((img) => {
+//   img.addEventListener("mouseover", function () {
+//     const photoNum = img.dataset.src;
+//     console.log(photoNum);
+//     document
+//       .querySelector(`div[data-src="${photoNum}"]`)
+//       .classList.remove("hidden");
+//   });
+//   img.addEventListener("mouseout", function () {
+//     const photoNum = img.dataset.src;
+//     console.log(photoNum);
+//     document
+//       .querySelector(`div[data-src="${photoNum}"]`)
+//       .classList.add("hidden");
+//   });
+// });
+//lazy loading
+const imgMap = {
+    1: (0, _product1WebpDefault.default),
+    2: (0, _product2WebpDefault.default),
+    3: (0, _product3WebpDefault.default),
+    4: (0, _product4WebpDefault.default),
+    5: (0, _product5WebpDefault.default),
+    6: (0, _product6WebpDefault.default)
+};
+const imgTargets = document.querySelectorAll("img[data-src]");
+const lazyloading = function(entries, observer) {
+    entries.forEach((entry)=>{
+        if (!entry.isIntersecting) return;
+        const img = entry.target;
+        const imgNum = img.dataset.num;
+        if (imgMap[imgNum]) {
+            img.src = imgMap[imgNum]; // Set the actual src
+            img.addEventListener("load", function() {
+                img.classList.remove("lazy-img");
+            });
+        }
+        observer.unobserve(img);
+    });
+};
+const imgObserver = new IntersectionObserver(lazyloading, {
+    root: null,
+    threshold: 0,
+    rootMargin: "100px"
+});
+imgTargets.forEach((img)=>imgObserver.observe(img));
+//Product transition
+const fillHeart = function(heart) {
+    heart.classList.remove("fa-regular");
+    heart.classList.add("fa-solid");
+};
+const emptyHeart = function(heart) {
+    heart.classList.remove("fa-solid");
+    heart.classList.add("fa-regular");
+};
+hearts.forEach((heart)=>{
+    let isClicked = false;
+    heart.addEventListener("mouseover", function() {
+        if (!isClicked) fillHeart(heart);
+    });
+    heart.addEventListener("mouseout", function() {
+        if (!isClicked) emptyHeart(heart);
+    });
+    heart.addEventListener("click", function() {
+        isClicked = !isClicked;
+        if (isClicked) fillHeart(heart);
+        else emptyHeart(heart);
+    });
+});
+
+},{"../images/product1.webp":"j1T9x","../images/product2.webp":"btEHj","../images/product3.webp":"eDGB7","../images/product4.webp":"irZf1","../images/product5.webp":"cbkMt","../images/product6.webp":"6DI96","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"j1T9x":[function(require,module,exports) {
+module.exports = require("372b33b594c29a6d").getBundleURL("2MSMO") + "product1.2d0e97cb.webp" + "?" + Date.now();
+
+},{"372b33b594c29a6d":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return "/";
+}
+function getBaseURL(url) {
+    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+}
+// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error("Origin not found");
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}],"btEHj":[function(require,module,exports) {
+module.exports = require("38cb5134559c76ea").getBundleURL("2MSMO") + "product2.c0433759.webp" + "?" + Date.now();
+
+},{"38cb5134559c76ea":"lgJ39"}],"eDGB7":[function(require,module,exports) {
+module.exports = require("18ef22f8d93c7347").getBundleURL("2MSMO") + "product3.0b56edae.webp" + "?" + Date.now();
+
+},{"18ef22f8d93c7347":"lgJ39"}],"irZf1":[function(require,module,exports) {
+module.exports = require("6672d1fce1da7df7").getBundleURL("2MSMO") + "product4.320f92b3.webp" + "?" + Date.now();
+
+},{"6672d1fce1da7df7":"lgJ39"}],"cbkMt":[function(require,module,exports) {
+module.exports = require("a6f9f6bb9d1e0e5").getBundleURL("2MSMO") + "product5.7c539135.webp" + "?" + Date.now();
+
+},{"a6f9f6bb9d1e0e5":"lgJ39"}],"6DI96":[function(require,module,exports) {
+module.exports = require("31879eba3e4b812").getBundleURL("2MSMO") + "product6.d65a6cb8.webp" + "?" + Date.now();
+
+},{"31879eba3e4b812":"lgJ39"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || Object.prototype.hasOwnProperty.call(dest, key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
 
 },{}]},["2L15i","dV6cC"], "dV6cC", "parcelRequirecce0")
 

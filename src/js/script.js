@@ -6,8 +6,16 @@ const loginBtn = document.querySelector(".login--btn");
 const loginModal = document.querySelector(".login-modal");
 const loginOverlay = document.querySelector(".login-overlay");
 const closeIcon = document.querySelector(".close-icon");
-const images = document.querySelectorAll(".product-image");
+// const images = document.querySelectorAll(".product-image");
+const hearts = document.querySelectorAll(".product .fa-heart");
 // const productBtn = document.querySelector(".product-buttons");
+
+import product1 from "../images/product1.webp";
+import product2 from "../images/product2.webp";
+import product3 from "../images/product3.webp";
+import product4 from "../images/product4.webp";
+import product5 from "../images/product5.webp";
+import product6 from "../images/product6.webp";
 
 //nav menu
 function toggleMenu() {
@@ -17,24 +25,6 @@ function toggleMenu() {
 }
 
 menu.addEventListener("click", toggleMenu);
-
-// lazy loading
-// const imgTargets = document.querySelectorAll("img[data-src]");
-// const lazyloading = function (entries, observer) {
-//   const [entry] = entries;
-//   console.log(entry);
-//   if (!entry.isIntersecting) return;
-//   entry.target.src = entry.target.dataset.src;
-//   entry.target.addEventListener("load", function () {
-//     this.classList.remove("lazy");
-//   });
-// };
-// const imgObserver = new IntersectionObserver(lazyloading, {
-//   root: null,
-//   threshold: 0,
-//   rootMargin: "200px",
-// });
-// imgTargets.forEach((img) => imgObserver.observe(img));
 
 //Show Login Form
 const showModal = function () {
@@ -51,7 +41,7 @@ closeIcon.addEventListener("click", hideModal);
 // loginOverlay.addEventListener("click", hideModal);
 
 //Product transition
-console.log(images);
+// console.log(images);
 // images.forEach((img) => {
 //   img.addEventListener("mouseover", function () {
 //     const photoNum = img.dataset.src;
@@ -68,3 +58,73 @@ console.log(images);
 //       .classList.add("hidden");
 //   });
 // });
+
+//lazy loading
+
+const imgMap = {
+  1: product1,
+  2: product2,
+  3: product3,
+  4: product4,
+  5: product5,
+  6: product6,
+};
+
+const imgTargets = document.querySelectorAll("img[data-src]");
+
+const lazyloading = function (entries, observer) {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+
+    const img = entry.target;
+    const imgNum = img.dataset.num;
+    if (imgMap[imgNum]) {
+      img.src = imgMap[imgNum]; // Set the actual src
+      img.addEventListener("load", function () {
+        img.classList.remove("lazy-img");
+      });
+    }
+
+    observer.unobserve(img);
+  });
+};
+
+const imgObserver = new IntersectionObserver(lazyloading, {
+  root: null,
+  threshold: 0,
+  rootMargin: "100px",
+});
+
+imgTargets.forEach((img) => imgObserver.observe(img));
+
+//Product transition
+const fillHeart = function (heart) {
+  heart.classList.remove("fa-regular");
+  heart.classList.add("fa-solid");
+};
+
+const emptyHeart = function (heart) {
+  heart.classList.remove("fa-solid");
+  heart.classList.add("fa-regular");
+};
+
+hearts.forEach((heart) => {
+  let isClicked = false;
+
+  heart.addEventListener("mouseover", function () {
+    if (!isClicked) fillHeart(heart);
+  });
+
+  heart.addEventListener("mouseout", function () {
+    if (!isClicked) emptyHeart(heart);
+  });
+
+  heart.addEventListener("click", function () {
+    isClicked = !isClicked;
+    if (isClicked) {
+      fillHeart(heart);
+    } else {
+      emptyHeart(heart);
+    }
+  });
+});
