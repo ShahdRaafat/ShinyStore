@@ -393,6 +393,37 @@ img:not(.lazy-img) {
   filter: none;
 }
 
+.view-product {
+  background-color: var(--whiteColor);
+  z-index: 100;
+  background-color: #fff;
+  border-radius: 10px;
+  align-items: center;
+  gap: 30px;
+  width: 70%;
+  height: 450px;
+  padding: 30px;
+  display: flex;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.view-product .view-image {
+  flex-basis: 50%;
+}
+
+.view-product img {
+  border-radius: 30px;
+  width: 90%;
+  max-width: 100%;
+}
+
+.view-product .view-info {
+  flex-basis: 50%;
+}
+
 :root {
   --pinkColor: #ff87b9;
   --mainColor: #e04660;

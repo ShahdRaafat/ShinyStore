@@ -7,7 +7,7 @@ const loginModal = document.querySelector(".login-modal");
 const loginOverlay = document.querySelector(".login-overlay");
 const closeIcon = document.querySelector(".close-icon");
 // const images = document.querySelectorAll(".product-image");
-const hearts = document.querySelectorAll(".product .fa-heart");
+const hearts = document.querySelectorAll(".products .fa-heart");
 // const productBtn = document.querySelector(".product-buttons");
 
 import product1 from "../images/product1.webp";
