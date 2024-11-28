@@ -100,14 +100,18 @@ img:not(.lazy-img) {
   height: 450px;
   display: flex;
   gap: 30px;
-  z-index: 100;
+  z-index: 103;
   background-color: #fff;
   padding: 30px;
-  align-items: center;
+  /* align-items: center; */
   border-radius: 10px;
+}
+.view-overlay {
+  z-index: 102;
 }
 .view-product .view-image {
   flex-basis: 50%;
+  align-self: center;
 }
 .view-product img {
   width: 90%;
@@ -116,4 +120,87 @@ img:not(.lazy-img) {
 }
 .view-product .view-info {
   flex-basis: 50%;
+  position: relative;
+}
+.view-info .description {
+  color: var(--pinkColor);
+  margin-top: 15px;
+}
+.view-info .price,
+.view-info .tax {
+  color: #696969;
+}
+.view-info .price {
+  margin-top: 10px;
+  font-size: 20px;
+}
+.view-info .tax {
+  margin-top: 30px;
+  font-size: 14px;
+}
+.view-info .remaining {
+  margin: 20px 0px;
+  font-size: 14px;
+  color: var(--pinkColor);
+  font-weight: bold;
+}
+.view-info .buttons {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 15px;
+  row-gap: 40px;
+}
+.view-info .input-quantity {
+  display: flex;
+  width: 130px;
+  gap: 10px;
+  margin: 20px 0px;
+  border: solid 1px var(--blackColor);
+  padding: 10px;
+  border-radius: 30px;
+}
+.view-info .quantity {
+  color: black;
+  text-align: center;
+  font-weight: 600;
+  border: none;
+  width: 50px;
+  font-size: 18px;
+}
+.quantity::-webkit-outer-spin-button,
+.quantity::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.fa-plus,
+.fa-minus {
+  line-height: 1.1 !important;
+}
+.view-product .fa-xmark,
+.view-info .fa-heart {
+  font-size: 20px;
+  border: 1px solid var(--blackColor);
+  padding: 10px;
+  border-radius: 50%;
+}
+.view-info .fa-xmark {
+  position: absolute;
+  top: -12%;
+  right: -12%;
+  border: 2px solid var(--whiteColor);
+  background-color: var(--hotpinkColor);
+  color: var(--whiteColor);
+}
+.view-info .fa-heart {
+  align-self: center;
+}
+
+.products i {
+  cursor: pointer;
+}
+.view-info .fa-heart:hover {
+  border: var(--pinkColor) solid 2px;
+}
+.view-info .buttons .add-to-cart {
+  flex-basis: 100%;
+  align-self: flex-end;
 }

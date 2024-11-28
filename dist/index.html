@@ -51,7 +51,7 @@
           </div>
         </nav>
       </div>
-      <div class="login-overlay hidden">
+      <div class="login-overlay overlay hidden">
         <div class="login-modal hidden">
           <i class="fa-solid fa-xmark close-icon"></i>
           <h2>Shiny Store</h2>
@@ -117,8 +117,8 @@
           <div class="products-container">
             <div class="product product-1">
               <div class="product-overlay">
-                <div class="product-buttons" data-src="1">
-                  <button class="btn fa-regular fa-eye"></button>
+                <div class="product-buttons">
+                  <button class="btn fa-regular fa-eye" data-src="1"></button>
                   <button class="btn fa-solid fa-cart-shopping cart"></button>
                 </div>
 
@@ -126,6 +126,10 @@
               </div>
               <div class="text">
                 <div class="product-description">
+                  <p class="description hidden">
+                    Moisturizer Cream with honey , yogurt and other natural
+                    ingredients - Offer
+                  </p>
                   <p class="name">Moisturizer Cream</p>
                   <p class="price">200 LE</p>
                 </div>
@@ -135,14 +139,17 @@
             </div>
             <div class="product product-2">
               <div class="product-overlay">
-                <div class="product-buttons" data-src="2">
-                  <button class="btn fa-regular fa-eye"></button>
+                <div class="product-buttons">
+                  <button class="btn fa-regular fa-eye" data-src="2"></button>
                   <button class="btn fa-solid fa-cart-shopping cart"></button>
                 </div>
                 <img src="/product2-compressed.57d26879.webp" class="product-image lazy-img" alt="Image of product 2" data-src="src/images/product2.webp" data-num="2">
               </div>
               <div class="text">
                 <div class="product-description">
+                  <p class="description hidden">
+                    Body Lotion Vanilla scent, Moisturizing 24 hours - Offer
+                  </p>
                   <p class="name">Body Lotion</p>
                   <p class="price">350 LE</p>
                 </div>
@@ -152,16 +159,19 @@
             </div>
             <div class="product product-3">
               <div class="product-overlay">
-                <div class="product-buttons" data-src="3">
-                  <button class="btn fa-regular fa-eye"></button>
+                <div class="product-buttons">
+                  <button class="btn fa-regular fa-eye" data-src="3"></button>
                   <button class="btn fa-solid fa-cart-shopping cart"></button>
                 </div>
                 <img src="/product3-compressed.f6feb254.webp" class="product-image lazy-img" alt="Image of product 3" data-src="src/images/product3.webp" data-num="3">
               </div>
               <div class="text">
                 <div class="product-description">
-                  <p class="name">Toner</p>
-                  <p class="price">250 LE</p>
+                  <p class="description hidden">
+                    Suitable for all skin types , Enjoy clean and shiny skin!
+                  </p>
+                  <p class="name">Facial Cleanser</p>
+                  <p class="price">200 LE</p>
                 </div>
 
                 <i class="fa-regular fa-heart"></i>
@@ -169,14 +179,17 @@
             </div>
             <div class="product product-4">
               <div class="product-overlay">
-                <div class="product-buttons h" data-src="4">
-                  <button class="btn fa-regular fa-eye"></button>
+                <div class="product-buttons">
+                  <button class="btn fa-regular fa-eye" data-src="4"></button>
                   <button class="btn fa-solid fa-cart-shopping cart"></button>
                 </div>
                 <img src="/product4-compressed.befc9c5a.webp" class="product-image lazy-img" alt="Image of product 4" data-src="src/images/product4.webp" data-num="4">
               </div>
               <div class="text">
                 <div class="product-description">
+                  <p class="description hidden">
+                    For Vanilla Lovers, lasts for more than 24 hours!
+                  </p>
                   <p class="name">Body Mist</p>
                   <p class="price">150 LE</p>
                 </div>
@@ -186,14 +199,18 @@
             </div>
             <div class="product product-5">
               <div class="product-overlay">
-                <div class="product-buttons" data-src="5">
-                  <button class="btn fa-regular fa-eye"></button>
+                <div class="product-buttons">
+                  <button class="btn fa-regular fa-eye" data-src="5"></button>
                   <button class="btn fa-solid fa-cart-shopping cart"></button>
                 </div>
                 <img src="/product5-compressed.c7489064.webp" class="product-image lazy-img" data-src="src/images/product5.webp" data-num="5" alt="Image of product 5">
               </div>
               <div class="text">
                 <div class="product-description">
+                  <p class="description hidden">
+                    Shampoo for cleansing the scalp well , hair mask for a
+                    Moisturized and beautiful lookin hair!
+                  </p>
                   <p class="name">Hair Set</p>
                   <p class="price">500 LE</p>
                 </div>
@@ -203,41 +220,59 @@
             </div>
             <div class="product product-6">
               <div class="product-overlay">
-                <div class="product-buttons" data-src="6">
-                  <button class="btn fa-regular fa-eye"></button>
+                <div class="product-buttons">
+                  <button class="btn fa-regular fa-eye" data-src="6"></button>
                   <button class="btn fa-solid fa-cart-shopping cart"></button>
                 </div>
                 <img src="/product6-compressed.77d29278.webp" class="product-image lazy-img" alt="Image of product 6" data-src="src/images/product6.webp" data-num="6">
               </div>
               <div class="text">
                 <div class="product-description">
-                  <p class="name">Facial Cleanser</p>
-                  <p class="price">200 LE</p>
+                  <p class="description hidden">
+                    Suitable for all skin types , Enjoy clean and shiny body!
+                  </p>
+                  <p class="name">Shower Gel</p>
+                  <p class="price">150 LE</p>
                 </div>
                 <i class="fa-regular fa-heart"></i>
               </div>
             </div>
           </div>
-          <div class="view-product">
+        </div>
+        <div class="overlay view-overlay hidden">
+          <!-- <div class="view-product">
             <div class="view-image">
-              <img src="/product1.2d0e97cb.webp" alt="product-1">
+              <img src="src/images/product1.webp" alt="product-1" />
             </div>
             <div class="view-info">
+              <i class="fa-solid fa-xmark close-view"></i>
               <div class="text">
                 <h3 class="description">
                   Moisturizer Cream with honey , yogurt and other natural
                   ingredients - Offer
                 </h3>
                 <p class="price">200 LE</p>
-                <p>Tax Included</p>
+                <p class="tax">Tax Included</p>
+                <p class="remaining">6 pieces left , buy yours now!</p>
                 <div class="buttons">
-                  <input type="number" name="quantity" class="quantity">
+                  <div class="input-quantity">
+                    <i class="fa-solid fa-minus"></i>
+                    <input
+                      type="number"
+                      name="quantity"
+                      class="quantity"
+                      placeholder="1"
+                      data-current="1"
+                    />
+                    <i class="fa-solid fa-plus"></i>
+                  </div>
+
                   <i class="fa-regular fa-heart"></i>
                   <button class="add-to-cart btn">Add to cart</button>
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </section>
     </main>
