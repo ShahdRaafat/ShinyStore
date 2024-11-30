@@ -16,6 +16,13 @@ const hearts = document.querySelectorAll(".products .fa-heart");
 // const viewProduct = document.querySelectorAll(".fa-eye");
 const viewProductOverlay = document.querySelector(".view-overlay");
 // const closeViewProduct = document.querySelector(".close-view");
+const shoppingCart = document.querySelector(".cart");
+const addToCartBtn = document.querySelector(".add-to-cart");
+const shopping = document.querySelector(".shopping");
+console.log(shopping);
+const shoppingList = document.querySelector(".shopping-list");
+const shoppingOverlay = document.querySelector(".shopping-overlay");
+const closeCartBtn = document.querySelector(".close-cart");
 
 //nav menu
 function toggleMenu() {
@@ -210,3 +217,23 @@ viewProductOverlay.addEventListener("click", function (e) {
     quantityField.value = currentQuantity;
   }
 });
+
+//open shopping cart
+const openCart = function () {
+  shoppingOverlay.classList.remove("not-visible");
+  shopping.style.transform = "translateX(0%)";
+};
+//close shopping cart
+const closeCart = function () {
+  shoppingOverlay.classList.add("not-visible");
+  shopping.style.transform = "translateX(30%)";
+};
+
+//Add to shopping cart
+// const addToCart=function(product){
+//   const name=
+// }
+
+//Event Listeners for shopping cart
+shoppingCart.addEventListener("click", openCart);
+closeCartBtn.addEventListener("click", closeCart);

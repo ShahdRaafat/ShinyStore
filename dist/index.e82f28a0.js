@@ -617,6 +617,13 @@ const hearts = document.querySelectorAll(".products .fa-heart");
 // const viewProduct = document.querySelectorAll(".fa-eye");
 const viewProductOverlay = document.querySelector(".view-overlay");
 // const closeViewProduct = document.querySelector(".close-view");
+const shoppingCart = document.querySelector(".cart");
+const addToCartBtn = document.querySelector(".add-to-cart");
+const shopping = document.querySelector(".shopping");
+console.log(shopping);
+const shoppingList = document.querySelector(".shopping-list");
+const shoppingOverlay = document.querySelector(".shopping-overlay");
+const closeCartBtn = document.querySelector(".close-cart");
 //nav menu
 function toggleMenu() {
     items.classList.toggle("show");
@@ -765,6 +772,23 @@ viewProductOverlay.addEventListener("click", function(e) {
         quantityField.value = currentQuantity;
     }
 });
+//open shopping cart
+const openCart = function() {
+    shoppingOverlay.classList.remove("not-visible");
+    shopping.style.transform = "translateX(0%)";
+};
+//close shopping cart
+const closeCart = function() {
+    shoppingOverlay.classList.add("not-visible");
+    shopping.style.transform = "translateX(30%)";
+};
+//Add to shopping cart
+// const addToCart=function(product){
+//   const name=
+// }
+//Event Listeners for shopping cart
+shoppingCart.addEventListener("click", openCart);
+closeCartBtn.addEventListener("click", closeCart);
 
 },{"../images/product1.webp":"j1T9x","../images/product2.webp":"btEHj","../images/product3.webp":"eDGB7","../images/product4.webp":"irZf1","../images/product5.webp":"cbkMt","../images/product6.webp":"6DI96","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"j1T9x":[function(require,module,exports) {
 module.exports = require("372b33b594c29a6d").getBundleURL("2MSMO") + "product1.2d0e97cb.webp" + "?" + Date.now();

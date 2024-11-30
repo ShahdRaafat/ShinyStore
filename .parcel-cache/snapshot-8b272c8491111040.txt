@@ -1,4 +1,8 @@
-5975
+5977
+93D:\skincareStore\node_modules\@parcel\optimizer-svgo\node_modules\css-tree\lib\utils\names.js133739303270676311 0
+58D:\skincareStore\node_modules\node-addon-api\noexcept.gypi133739303286850747 0
+58D:\skincareStore\node_modules\cosmiconfig\dist\Explorer.js133739303263385937 0
+56D:\skincareStore\node_modules\csso\cjs\replace\color.cjs133739303250153219 0
 72D:\skincareStore\node_modules\lightningcss\node\browserslistToTargets.js133739303268584571 0
 57D:\skincareStore\node_modules\supports-color\package.json133739303269187692 0
 52D:\skincareStore\node_modules\commander\package.json133739303339062528 0
@@ -40,7 +44,7 @@
 50D:\skincareStore\node_modules\posthtml-render\dist133739303312249856 1
 76D:\skincareStore\node_modules\lmdb\node_modules\node-addon-api\noexcept.gypi133739303256550866 0
 61D:\skincareStore\node_modules\@parcel\workers\src\cpuCount.js133739303281364172 0
-21D:\skincareStore\dist133772966966921079 1
+21D:\skincareStore\dist133774767932851182 1
 50D:\skincareStore\node_modules\json5\dist\index.mjs133739303283677854 0
 38D:\skincareStore\node_modules\boolbase133739303242073113 1
 49D:\skincareStore\node_modules\get-port\index.d.ts133739303296716584 0
@@ -52,7 +56,7 @@
 52D:\skincareStore\node_modules\nth-check\package.json133739303246375297 0
 78D:\skincareStore\node_modules\caniuse-lite\data\features\css-matches-pseudo.js133739303284520575 0
 68D:\skincareStore\node_modules\@parcel\transformer-html\lib\inline.js133739303284131612 0
-27D:\skincareStore\index.html133772881482616748 0
+27D:\skincareStore\index.html133774760502681291 0
 58D:\skincareStore\node_modules\nth-check\lib\index.d.ts.map133739303249812313 0
 81D:\skincareStore\node_modules\caniuse-lite\data\features\css-placeholder-shown.js133739303285110730 0
 36D:\skincareStore\node_modules\semver133739303330731203 1
@@ -90,7 +94,7 @@
 79D:\skincareStore\node_modules\lmdb\dependencies\lmdb\libraries\liblmdb\mtest2.c133739303307292214 0
 57D:\skincareStore\node_modules\htmlparser2\lib\Parser.d.ts133739303251383725 0
 89D:\skincareStore\node_modules\caniuse-lite\data\features\background-repeat-round-space.js133739303280624970 0
-32D:\skincareStore\src\css\nav.css133772697690581222 0
+32D:\skincareStore\src\css\nav.css133774765208859897 0
 61D:\skincareStore\node_modules\css-select\lib\esm\index.js.map133739303253129096 0
 39D:\skincareStore\node_modules\nth-check133739303250678229 1
 73D:\skincareStore\node_modules\lmdb\node_modules\node-addon-api\napi-inl.h133739303263695926 0
@@ -124,14 +128,14 @@
 95D:\skincareStore\node_modules\@parcel\optimizer-svgo\node_modules\csso\lib\clean\Declaration.js133739303275689751 0
 57D:\skincareStore\node_modules\regenerator-runtime\path.js133739303254790071 0
 41D:\skincareStore\src\images\product6.webp133744131143901127 0
-57D:\skincareStore\node_modules\entities\lib\index.d.ts.map133739303252013526 0
-43D:\skincareStore\node_modules\color-convert133739303278384333 1
-75D:\skincareStore\node_modules\caniuse-lite\data\features\css-reflections.js133739303285235955 0
-48D:\skincareStore\src\webfonts\fa-regular-400.ttf133457632940000000 0
 68D:\skincareStore\node_modules\type-fest\source\conditional-pick.d.ts133739303273185708 0
 35D:\skincareStore\node_modules\clone133739303317450881 1
 52D:\skincareStore\node_modules\@parcel\events\LICENSE133739303252679035 0
 70D:\skincareStore\node_modules\type-fest\source\conditional-except.d.ts133739303273155724 0
+48D:\skincareStore\src\webfonts\fa-regular-400.ttf133457632940000000 0
+57D:\skincareStore\node_modules\entities\lib\index.d.ts.map133739303252013526 0
+43D:\skincareStore\node_modules\color-convert133739303278384333 1
+75D:\skincareStore\node_modules\caniuse-lite\data\features\css-reflections.js133739303285235955 0
 102D:\skincareStore\node_modules\@parcel\optimizer-htmlnano\node_modules\css-tree\lib\generator\create.js133739303259453143 0
 66D:\skincareStore\node_modules\dom-serializer\lib\foreignNames.d.ts133739303250968234 0
 49D:\skincareStore\src\webfonts\fa-brands-400.woff2133457632940000000 0
@@ -193,7 +197,7 @@
 94D:\skincareStore\node_modules\@parcel\core\test\fixtures\custom-format-infer-type\package.json133739303281128531 0
 81D:\skincareStore\node_modules\lmdb\dependencies\lmdb\libraries\liblmdb\mdb_load.c133739303304574599 0
 50D:\skincareStore\node_modules\is-json\package.json133739303248863313 0
-33D:\skincareStore\src\js\script.js133772966966258058 0
+33D:\skincareStore\src\js\script.js133774767923363666 0
 40D:\skincareStore\src\images\landing.webp133770300917280245 0
 42D:\skincareStore\node_modules\caniuse-lite133739303321031626 1
 69D:\skincareStore\node_modules\node-gyp-build-optional-packages\bin.js133739303249404304 0
@@ -324,7 +328,7 @@
 97D:\skincareStore\node_modules\@parcel\optimizer-svgo\node_modules\css-select\lib\pseudo-selectors133739303275774955 1
 68D:\skincareStore\node_modules\caniuse-lite\data\features\minmaxwh.js133739303299641028 0
 51D:\skincareStore\node_modules\css-tree\lib\index.js133739303260113099 0
-43D:\skincareStore\dist\landing.0d6ed9ad.webp133772949721406094 0
+43D:\skincareStore\dist\landing.0d6ed9ad.webp133774767932530954 0
 103D:\skincareStore\node_modules\@parcel\optimizer-htmlnano\node_modules\css-tree\lib\syntax\pseudo\dir.js133739303274497876 0
 87D:\skincareStore\node_modules\@parcel\package-manager\test\fixtures\packages\a\index.js133739303264015924 0
 69D:\skincareStore\node_modules\csso\node_modules\css-tree\cjs\data.cjs133739303259373119 0
@@ -440,8 +444,6 @@
 67D:\skincareStore\node_modules\@mischnic\json-sourcemap\package.json133739303255565525 0
 65D:\skincareStore\node_modules\node-releases\data\release-schedule133739303274347266 1
 52D:\skincareStore\node_modules\js-yaml\lib\snippet.js133739303333486936 0
-72D:\skincareStore\node_modules\posthtml-parser\dist\location-tracker.d.ts133739303264281222 0
-86D:\skincareStore\node_modules\@swc\helpers\_\_initializer_define_property\package.json133739303261119620 0
 40D:\skincareStore\node_modules\is-extglob133739303320059922 1
 64D:\skincareStore\node_modules\css-what\lib\es\stringify.d.ts.map133739303250888220 0
 37D:\skincareStore\node_modules\is-glob133739303295601402 1
@@ -715,7 +717,7 @@
 69D:\skincareStore\node_modules\css-tree\cjs\syntax\node\Percentage.cjs133739303254330093 0
 59D:\skincareStore\node_modules\weak-lru-cache\dist\index.cjs133739303249314320 0
 42D:\skincareStore\node_modules\lmdb\read.js133739303313531744 0
-75D:\skincareStore\dist\pngtree-skin-care-logo-png-image_5774040.4bf6a9b8.png133772949720660562 0
+75D:\skincareStore\dist\pngtree-skin-care-logo-png-image_5774040.4bf6a9b8.png133774767932041015 0
 48D:\skincareStore\node_modules\utility-types\dist133739303289412069 1
 52D:\skincareStore\node_modules\to-regex-range\LICENSE133739303249576307 0
 46D:\skincareStore\node_modules\get-port\license133739303296832015 0
@@ -1082,9 +1084,6 @@
 78D:\skincareStore\node_modules\lmdb\node_modules\node-addon-api\tools\README.md133739303333137685 0
 47D:\skincareStore\node_modules\timsort\README.md133739303249721567 0
 44D:\skincareStore\node_modules\@parcel\logger133739303257792353 1
-84D:\skincareStore\node_modules\@msgpackr-extract\msgpackr-extract-win32-x64\README.md133739303258517610 0
-85D:\skincareStore\node_modules\csso\node_modules\css-tree\cjs\syntax\scope\default.cjs133739303259703052 0
-55D:\skincareStore\node_modules\js-yaml\lib\type\pairs.js133739303333391090 0
 69D:\skincareStore\node_modules\htmlnano\lib\modules\sortAttributes.mjs133739303298651643 0
 53D:\skincareStore\node_modules\semver\functions\gte.js133739303270325183 0
 61D:\skincareStore\node_modules\htmlnano\docs\docs\020-usage.md133739303292798437 0
@@ -1286,7 +1285,7 @@
 104D:\skincareStore\node_modules\@parcel\optimizer-htmlnano\node_modules\svgo\plugins\removeRasterImages.js133739303276186870 0
 50D:\skincareStore\node_modules\svgo\lib\svgo\coa.js133739303303583064 0
 59D:\skincareStore\node_modules\css-tree\cjs\utils\string.cjs133739303254560112 0
-44D:\skincareStore\dist\product5.7c539135.webp133772949721490545 0
+44D:\skincareStore\dist\product5.7c539135.webp133774767932450898 0
 67D:\skincareStore\node_modules\svgo\lib\svgo\css-select-adapter.d.ts133739303303628428 0
 53D:\skincareStore\node_modules\browserslist\browser.js133739303276627886 0
 53D:\skincareStore\node_modules\source-map\package.json133739303245159570 0
@@ -1548,6 +1547,8 @@
 59D:\skincareStore\node_modules\escape-string-regexp\index.js133739303241973146 0
 59D:\skincareStore\node_modules\posthtml-parser\dist\index.js133739303256662760 0
 59D:\skincareStore\node_modules\@swc\helpers\esm\_to_array.js133739303271345990 0
+72D:\skincareStore\node_modules\posthtml-parser\dist\location-tracker.d.ts133739303264281222 0
+86D:\skincareStore\node_modules\@swc\helpers\_\_initializer_define_property\package.json133739303261119620 0
 42D:\skincareStore\node_modules\posthtml\lib133739303278940708 1
 56D:\skincareStore\node_modules\htmlparser2\lib\index.d.ts133739303251273531 0
 95D:\skincareStore\node_modules\csso\node_modules\css-tree\lib\syntax\node\PseudoClassSelector.js133739303277195921 0
@@ -1853,9 +1854,6 @@
 56D:\skincareStore\node_modules\msgpackr-extract\README.md133739303250268229 0
 81D:\skincareStore\node_modules\caniuse-lite\data\features\background-attachment.js133739303280559857 0
 57D:\skincareStore\node_modules\node-addon-api\node_api.gyp133739303286760717 0
-93D:\skincareStore\node_modules\@parcel\optimizer-svgo\node_modules\css-tree\lib\utils\names.js133739303270676311 0
-58D:\skincareStore\node_modules\node-addon-api\noexcept.gypi133739303286850747 0
-58D:\skincareStore\node_modules\cosmiconfig\dist\Explorer.js133739303263385937 0
 51D:\skincareStore\node_modules\@swc\counter\index.js133739303250698306 0
 54D:\skincareStore\node_modules\node-addon-api\nothing.c133739303286675632 0
 57D:\skincareStore\node_modules\node-addon-api\package.json133739303309800665 0
@@ -2103,7 +2101,7 @@
 84D:\skincareStore\node_modules\lmdb\node_modules\node-addon-api\tools\clang-format.js133739303332780858 0
 58D:\skincareStore\node_modules\csso\lib\restructure\prepare133739303253864587 1
 80D:\skincareStore\node_modules\csso\node_modules\css-tree\cjs\parser\sequence.cjs133739303266532544 0
-44D:\skincareStore\dist\product1.2d0e97cb.webp133772949721057804 0
+44D:\skincareStore\dist\product1.2d0e97cb.webp133774767932320079 0
 85D:\skincareStore\node_modules\lmdb\node_modules\node-addon-api\tools\eslint-format.js133739303332926932 0
 76D:\skincareStore\node_modules\caniuse-lite\data\features\css-mediaqueries.js133739303284680978 0
 46D:\skincareStore\node_modules\dotenv\README.md133739303263345922 0
@@ -2285,6 +2283,9 @@
 60D:\skincareStore\node_modules\commander\package-support.json133739303338987134 0
 71D:\skincareStore\node_modules\caniuse-lite\data\features\videotracks.js133739303317985896 0
 54D:\skincareStore\node_modules\js-yaml\lib\type\null.js133739303333338176 0
+84D:\skincareStore\node_modules\@msgpackr-extract\msgpackr-extract-win32-x64\README.md133739303258517610 0
+85D:\skincareStore\node_modules\csso\node_modules\css-tree\cjs\syntax\scope\default.cjs133739303259703052 0
+55D:\skincareStore\node_modules\js-yaml\lib\type\pairs.js133739303333391090 0
 53D:\skincareStore\node_modules\js-yaml\lib\type\seq.js133739303333421086 0
 80D:\skincareStore\node_modules\csso\node_modules\css-tree\cjs\tokenizer\types.cjs133739303267487961 0
 81D:\skincareStore\node_modules\csso\node_modules\mdn-data\css\syntaxes.schema.json133739303331020344 0
@@ -2307,6 +2308,7 @@
 52D:\skincareStore\node_modules\js-yaml\bin\js-yaml.js133739303295621399 0
 48D:\skincareStore\node_modules\js-tokens\index.js133739303249636340 0
 69D:\skincareStore\node_modules\caniuse-lite\data\features\wasm-simd.js133739303318883642 0
+47D:\skincareStore\dist\skincareStore.3464ddca.js133774615381820796 0
 47D:\skincareStore\node_modules\js-tokens\LICENSE133739303249851541 0
 52D:\skincareStore\node_modules\js-tokens\package.json133739303249058376 0
 49D:\skincareStore\node_modules\js-tokens\README.md133739303250112972 0
@@ -2480,7 +2482,7 @@
 66D:\skincareStore\node_modules\css-what\lib\commonjs\types.d.ts.map133739303250958194 0
 48D:\skincareStore\node_modules\clone\package.json133739303254900117 0
 69D:\skincareStore\node_modules\css-tree\cjs\syntax\node\StyleSheet.cjs133739303254590110 0
-55D:\skincareStore\dist\fa-v4compatibility.e4c80b52.woff2133772949720612142 0
+55D:\skincareStore\dist\fa-v4compatibility.e4c80b52.woff2133774767932041015 0
 85D:\skincareStore\node_modules\htmlnano\docs\versioned_docs\version-2.0.0\020-usage.md133739303292869108 0
 87D:\skincareStore\node_modules\htmlnano\docs\versioned_docs\version-2.0.0\040-presets.md133739303292996594 0
 92D:\skincareStore\node_modules\htmlnano\docs\versioned_docs\version-1.1.1\010-introduction.md133739303292713202 0
@@ -2541,7 +2543,7 @@
 52D:\skincareStore\node_modules\css-select\lib\sort.js133739303251703517 0
 61D:\skincareStore\node_modules\@parcel\plugin\src\PluginAPI.js133739303273772921 0
 71D:\skincareStore\node_modules\css-tree\lib\utils\create-custom-error.js133739303257602275 0
-47D:\skincareStore\dist\fa-solid-900.563cfe1b.ttf133772949721490545 0
+47D:\skincareStore\dist\fa-solid-900.563cfe1b.ttf133774767932106473 0
 105D:\skincareStore\node_modules\@parcel\optimizer-svgo\node_modules\csso\lib\restructure\6-restructBlock.js133739303256706971 0
 61D:\skincareStore\node_modules\caniuse-lite\data\regions\LA.js133739303296021788 0
 51D:\skincareStore\node_modules\error-ex\package.json133739303248873303 0
@@ -2655,7 +2657,7 @@
 81D:\skincareStore\node_modules\csso\node_modules\css-tree\lib\syntax\node\Value.js133739303277968224 0
 53D:\skincareStore\node_modules\domutils\lib\helpers.js133739303249556312 0
 60D:\skincareStore\node_modules\css-what\lib\es\parse.d.ts.map133739303250698306 0
-55D:\skincareStore\dist\product5-compressed.c7489064.webp133772949720208666 0
+55D:\skincareStore\dist\product5-compressed.c7489064.webp133774767931552757 0
 53D:\skincareStore\node_modules\domutils\lib\index.d.ts133739303251693550 0
 57D:\skincareStore\node_modules\domutils\lib\index.d.ts.map133739303250918186 0
 54D:\skincareStore\node_modules\domutils\lib\legacy.d.ts133739303251753535 0
@@ -3122,7 +3124,6 @@
 68D:\skincareStore\node_modules\csso\cjs\restructure\prepare\index.cjs133739303251433525 0
 72D:\skincareStore\node_modules\css-tree\lib\syntax\function\expression.js133739303259803091 0
 78D:\skincareStore\node_modules\csso\cjs\restructure\prepare\processSelector.cjs133739303251743509 0
-56D:\skincareStore\node_modules\csso\cjs\replace\color.cjs133739303250153219 0
 56D:\skincareStore\node_modules\csso\cjs\replace\index.cjs133739303251188365 0
 95D:\skincareStore\node_modules\@parcel\package-manager\test\fixtures\packages\peers-2.0\index.js133739303264075936 0
 57D:\skincareStore\node_modules\csso\cjs\replace\Number.cjs133739303251613510 0
@@ -3265,7 +3266,7 @@
 77D:\skincareStore\node_modules\caniuse-lite\data\features\css-marker-pseudo.js133739303284470851 0
 52D:\skincareStore\node_modules\css-tree\dist\data.cjs133739303251923551 0
 54D:\skincareStore\node_modules\css-tree\data\patch.json133739303262024924 0
-55D:\skincareStore\dist\product6-compressed.77d29278.webp133772949721280704 0
+55D:\skincareStore\dist\product6-compressed.77d29278.webp133774767931885835 0
 57D:\skincareStore\node_modules\css-tree\cjs\data-patch.cjs133739303251623516 0
 60D:\skincareStore\node_modules\css-tree\cjs\definition-syntax133739303255100301 1
 97D:\skincareStore\node_modules\@parcel\optimizer-svgo\node_modules\css-tree\lib\tokenizer\index.js133739303270159688 0
@@ -3460,6 +3461,7 @@
 80D:\skincareStore\node_modules\css-select\node_modules\entities\lib\esm\encode.js133739303275784973 0
 84D:\skincareStore\node_modules\css-select\node_modules\entities\lib\esm\encode.js.map133739303331798982 0
 76D:\skincareStore\node_modules\caniuse-lite\data\features\link-rel-preload.js133739303296364070 0
+51D:\skincareStore\dist\skincareStore.3464ddca.js.map133774615381820796 0
 82D:\skincareStore\node_modules\css-select\node_modules\entities\lib\esm\escape.d.ts133739303332491369 0
 86D:\skincareStore\node_modules\css-select\node_modules\entities\lib\esm\escape.d.ts.map133739303331828914 0
 80D:\skincareStore\node_modules\css-select\node_modules\entities\lib\esm\escape.js133739303275940598 0
@@ -3597,7 +3599,7 @@
 55D:\skincareStore\node_modules\css-select\lib\index.d.ts133739303253894550 0
 74D:\skincareStore\node_modules\css-select\lib\pseudo-selectors\pseudos.d.ts133739303253944511 0
 52D:\skincareStore\node_modules\@parcel\optimizer-svgo133739303258877615 1
-55D:\skincareStore\dist\product3-compressed.f6feb254.webp133772949720612142 0
+55D:\skincareStore\dist\product3-compressed.f6feb254.webp133774767932041015 0
 59D:\skincareStore\node_modules\css-select\lib\index.d.ts.map133739303253069332 0
 78D:\skincareStore\node_modules\css-select\lib\pseudo-selectors\pseudos.d.ts.map133739303253254523 0
 53D:\skincareStore\node_modules\css-select\lib\index.js133739303251333509 0
@@ -3637,7 +3639,7 @@
 82D:\skincareStore\node_modules\@babel\highlight\node_modules\color-convert\index.js133739303257187013 0
 80D:\skincareStore\node_modules\@parcel\runtime-js\src\helpers\worker\js-loader.js133739303274372485 0
 68D:\skincareStore\node_modules\css-select\lib\esm\attributes.d.ts.map133739303252699009 0
-44D:\skincareStore\dist\product4.320f92b3.webp133772949721653236 0
+44D:\skincareStore\dist\product4.320f92b3.webp133774767932282539 0
 65D:\skincareStore\node_modules\css-select\lib\esm\compile.d.ts.map133739303252798973 0
 79D:\skincareStore\node_modules\caniuse-lite\data\features\keyboardevent-which.js133739303295686849 0
 59D:\skincareStore\node_modules\css-select\lib\esm\compile.js133739303250658269 0
@@ -3931,7 +3933,7 @@
 61D:\skincareStore\node_modules\caniuse-lite\data\regions\KI.js133739303295832098 0
 61D:\skincareStore\node_modules\caniuse-lite\data\regions\KR.js133739303295923146 0
 66D:\skincareStore\node_modules\@swc\helpers\esm\_read_only_error.js133739303271160780 0
-44D:\skincareStore\dist\index.de3eb72d.css.map133772949721653236 0
+44D:\skincareStore\dist\index.de3eb72d.css.map133774767932772235 0
 61D:\skincareStore\node_modules\caniuse-lite\data\regions\KW.js133739303295933115 0
 61D:\skincareStore\node_modules\caniuse-lite\data\regions\KY.js133739303295948183 0
 73D:\skincareStore\node_modules\@babel\highlight\node_modules\chalk\license133739303257047074 0
@@ -4554,8 +4556,6 @@
 61D:\skincareStore\node_modules\@swc\helpers\_\_sliced_to_array133739303262095107 1
 73D:\skincareStore\node_modules\@parcel\core\test\SymbolPropagation.test.js133739303279240084 0
 69D:\skincareStore\node_modules\@swc\helpers\_\_tagged_template_literal133739303262260599 1
-83D:\skincareStore\node_modules\@parcel\optimizer-htmlnano\node_modules\css-tree\data133739303278700305 1
-63D:\skincareStore\node_modules\@parcel\workers\lib\WorkerFarm.js133739303282634933 0
 51D:\skincareStore\node_modules\@swc\helpers\_\_throw133739303262340686 1
 57D:\skincareStore\node_modules\@swc\helpers\_\_ts_decorate133739303262550624 1
 54D:\skincareStore\node_modules\@swc\helpers\_\_ts_param133739303262690633 1
@@ -4609,7 +4609,7 @@
 75D:\skincareStore\node_modules\@swc\helpers\_\_class_call_check\package.json133739303259933055 0
 68D:\skincareStore\node_modules\@parcel\events\test\Disposable.test.js133739303271516334 0
 88D:\skincareStore\node_modules\@swc\helpers\_\_class_apply_descriptor_update\package.json133739303259913050 0
-55D:\skincareStore\dist\product1-compressed.652dec32.webp133772949721280704 0
+55D:\skincareStore\dist\product1-compressed.652dec32.webp133774767931555166 0
 86D:\skincareStore\node_modules\@swc\helpers\_\_check_private_redeclaration\package.json133739303259783076 0
 70D:\skincareStore\node_modules\@parcel\graph\test\AdjacencyList.test.js133739303261324897 0
 69D:\skincareStore\node_modules\@swc\helpers\_\_call_super\package.json133739303259743134 0
@@ -4814,6 +4814,8 @@
 57D:\skincareStore\node_modules\@parcel\workers\lib\threads133739303282203913 1
 73D:\skincareStore\node_modules\@babel\highlight\node_modules\color-convert133739303259563075 1
 53D:\skincareStore\node_modules\@parcel\workers\lib\web133739303282414419 1
+83D:\skincareStore\node_modules\@parcel\optimizer-htmlnano\node_modules\css-tree\data133739303278700305 1
+63D:\skincareStore\node_modules\@parcel\workers\lib\WorkerFarm.js133739303282634933 0
 65D:\skincareStore\node_modules\@parcel\workers\lib\web\WebChild.js133739303282339235 0
 66D:\skincareStore\node_modules\@parcel\workers\lib\web\WebWorker.js133739303282434384 0
 93D:\skincareStore\node_modules\@parcel\optimizer-htmlnano\node_modules\css-select\lib\index.js133739303257922260 0
@@ -5133,7 +5135,7 @@
 55D:\skincareStore\node_modules\@parcel\packager-wasm\lib133739303297479574 1
 67D:\skincareStore\node_modules\@parcel\core\test\BundleGraph.test.js133739303273803124 0
 59D:\skincareStore\node_modules\@parcel\packager-wasm\LICENSE133739303296509382 0
-40D:\skincareStore\dist\index.c92073ef.css133772949721325881 0
+40D:\skincareStore\dist\index.c92073ef.css133774767932530954 0
 55D:\skincareStore\node_modules\@parcel\packager-wasm\src133739303297680715 1
 64D:\skincareStore\node_modules\@parcel\core\lib\RequestTracker.js133739303278680232 0
 96D:\skincareStore\node_modules\@parcel\optimizer-svgo\node_modules\mdn-data\css\units.schema.json133739303276512632 0
@@ -5491,7 +5493,7 @@
 97D:\skincareStore\node_modules\@parcel\optimizer-htmlnano\node_modules\svgo\plugins\removeTitle.js133739303276427307 0
 111D:\skincareStore\node_modules\@parcel\optimizer-htmlnano\node_modules\svgo\plugins\removeUnknownsAndDefaults.js133739303276492603 0
 100D:\skincareStore\node_modules\@parcel\optimizer-htmlnano\node_modules\svgo\plugins\removeUnusedNS.js133739303276532574 0
-53D:\skincareStore\dist\fa-v4compatibility.edf8c5d5.ttf133772949721057804 0
+53D:\skincareStore\dist\fa-v4compatibility.edf8c5d5.ttf133774767932450898 0
 103D:\skincareStore\node_modules\@parcel\optimizer-htmlnano\node_modules\svgo\plugins\removeUselessDefs.js133739303276587809 0
 112D:\skincareStore\node_modules\@parcel\optimizer-htmlnano\node_modules\svgo\plugins\removeUselessStrokeAndFill.js133739303276617781 0
 99D:\skincareStore\node_modules\@parcel\optimizer-htmlnano\node_modules\svgo\plugins\removeViewBox.js133739303276669484 0
@@ -5681,7 +5683,7 @@
 47D:\skincareStore\node_modules\@parcel\graph\lib133739303263365873 1
 51D:\skincareStore\node_modules\@parcel\graph\LICENSE133739303255190182 0
 48D:\skincareStore\node_modules\@parcel\graph\test133739303261604957 1
-39D:\skincareStore\dist\index.e82f28a0.js133772966966838989 0
+39D:\skincareStore\dist\index.e82f28a0.js133774767932106473 0
 63D:\skincareStore\node_modules\@parcel\graph\test\BitSet.test.js133739303261444923 0
 62D:\skincareStore\node_modules\@parcel\graph\test\Graph.test.js133739303263285869 0
 64D:\skincareStore\node_modules\@parcel\graph\src\AdjacencyList.js133739303261219632 0
@@ -5873,7 +5875,7 @@
 72D:\skincareStore\node_modules\.bin\node-gyp-build-optional-packages-test133739303710918872 0
 70D:\skincareStore\node_modules\@mischnic\json-sourcemap\dist\index.d.ts133739303255695498 0
 67D:\skincareStore\node_modules\@lmdb\lmdb-win32-x64\node.abi108.node133739303302053865 0
-44D:\skincareStore\dist\index.0898f127.css.map133772949720748295 0
+44D:\skincareStore\dist\index.0898f127.css.map133774767932201734 0
 60D:\skincareStore\node_modules\@lmdb\lmdb-win32-x64\README.md133739303257832370 0
 43D:\skincareStore\node_modules\@lezer\common133739303272699030 1
 39D:\skincareStore\node_modules\@lezer\lr133739303272824438 1
@@ -5959,18 +5961,18 @@
 53D:\skincareStore\dist\product2.c0433759.webp.32396.4f133772198505923912 0
 53D:\skincareStore\dist\product4.320f92b3.webp.33312.ha133772193945788819 0
 64D:\skincareStore\dist\product6-compressed.77d29278.webp.32396.45133772198505833915 0
-50D:\skincareStore\dist\fa-brands-400.bf132e67.woff2133772949720275715 0
-55D:\skincareStore\dist\product2-compressed.57d26879.webp133772949720275715 0
-49D:\skincareStore\dist\fa-solid-900.18f7533b.woff2133772949720289294 0
-51D:\skincareStore\dist\fa-regular-400.0de38abd.woff2133772949720612142 0
-40D:\skincareStore\dist\index.0898f127.css133772949720660562 0
-44D:\skincareStore\dist\product3.0b56edae.webp133772949720786111 0
-55D:\skincareStore\dist\product4-compressed.befc9c5a.webp133772949720999457 0
-49D:\skincareStore\dist\fa-regular-400.7735c210.ttf133772949721085313 0
-48D:\skincareStore\dist\fa-brands-400.1a6915ca.ttf133772949721325881 0
-44D:\skincareStore\dist\product6.d65a6cb8.webp133772949721406094 0
-44D:\skincareStore\dist\index.c92073ef.css.map133772949721570403 0
-40D:\skincareStore\dist\index.de3eb72d.css133772949721570403 0
-32D:\skincareStore\dist\index.html133772949721780703 0
-44D:\skincareStore\dist\product2.c0433759.webp133772949721815813 0
-43D:\skincareStore\dist\index.e82f28a0.js.map133772966966921079 0
+32D:\skincareStore\dist\index.html133774760505628553 0
+50D:\skincareStore\dist\fa-brands-400.bf132e67.woff2133774767931555166 0
+49D:\skincareStore\dist\fa-solid-900.18f7533b.woff2133774767931555166 0
+44D:\skincareStore\dist\product3.0b56edae.webp133774767931667320 0
+55D:\skincareStore\dist\product2-compressed.57d26879.webp133774767931885835 0
+48D:\skincareStore\dist\fa-brands-400.1a6915ca.ttf133774767931960910 0
+51D:\skincareStore\dist\fa-regular-400.0de38abd.woff2133774767932041015 0
+40D:\skincareStore\dist\index.0898f127.css133774767932121573 0
+43D:\skincareStore\dist\index.e82f28a0.js.map133774767932201734 0
+55D:\skincareStore\dist\product4-compressed.befc9c5a.webp133774767932450898 0
+49D:\skincareStore\dist\fa-regular-400.7735c210.ttf133774767932450898 0
+44D:\skincareStore\dist\product6.d65a6cb8.webp133774767932530954 0
+44D:\skincareStore\dist\index.c92073ef.css.map133774767932611008 0
+44D:\skincareStore\dist\product2.c0433759.webp133774767932690947 0
+40D:\skincareStore\dist\index.de3eb72d.css133774767932772235 0

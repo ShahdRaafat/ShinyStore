@@ -215,6 +215,65 @@ nav {
   display: none;
 }
 
+.not-visible {
+  visibility: hidden;
+}
+
+.shopping {
+  text-align: center;
+  z-index: 100;
+  background-color: #fff;
+  width: 330px;
+  height: 100vh;
+  padding: 20px;
+  transition: transform .3s;
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  transform: translateX(30%);
+}
+
+.shopping .close-cart {
+  color: var(--hotpinkColor);
+  font-size: 18px;
+  position: absolute;
+  top: -4%;
+  right: 6%;
+}
+
+.shopping h3 {
+  color: #696969;
+  text-align: left;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.shopping h3:after {
+  content: "";
+  background-color: #d3d1d1;
+  width: 100%;
+  height: .2px;
+  position: absolute;
+  bottom: -60%;
+  left: 0%;
+}
+
+.shopping .fa-solid {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 40px;
+}
+
+.shopping p {
+  color: #696969;
+  margin: 20px 0;
+  font-size: 18px;
+}
+
+.shopping a {
+  width: 150px;
+}
+
 .landing .container {
   justify-content: space-between;
   align-items: center;

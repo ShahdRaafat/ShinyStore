@@ -192,3 +192,54 @@ nav {
 .hidden {
   display: none;
 }
+.not-visible {
+  visibility: hidden;
+}
+.shopping {
+  position: absolute;
+  height: 100vh;
+  width: 330px;
+  background-color: white;
+  top: 0%;
+  right: 0%;
+  padding: 20px;
+  text-align: center;
+  z-index: 100;
+  transform: translateX(30%);
+  transition: transform 0.3s ease;
+}
+.shopping .close-cart {
+  position: absolute;
+  top: -4%;
+  right: 6%;
+  font-size: 18px;
+  color: var(--hotpinkColor);
+}
+.shopping h3 {
+  color: #696969;
+  text-align: left;
+  margin-bottom: 15px;
+  position: relative;
+}
+.shopping h3::after {
+  content: "";
+  width: 100%;
+  position: absolute;
+  height: 0.2px;
+  bottom: -60%;
+  left: 0%;
+  background-color: #d3d1d1;
+}
+.shopping .fa-solid {
+  font-size: 40px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.shopping p {
+  color: #696969;
+  font-size: 18px;
+  margin: 20px 0px;
+}
+.shopping a {
+  width: 150px;
+}
