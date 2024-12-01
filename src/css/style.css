@@ -1,6 +1,7 @@
 @import "./nav.css";
 @import "./landing.css";
 @import "./products.css";
+@import "./shoppingList.css";
 
 :root {
   --pinkColor: #ff87b9;
@@ -78,10 +79,14 @@ ul {
   color: #f9e3e6;
   display: inline-block;
   width: 140px;
-  transition: 0.4s;
+  transition: 0.3s background-color, 0.3s color;
   border-radius: 25px;
 }
 .btn:hover {
   background-color: var(--blackColor);
   color: var(--hotpinkColor);
+}
+img {
+  width: 100%;
+  max-width: 100%;
 }

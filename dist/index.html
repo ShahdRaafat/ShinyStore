@@ -46,7 +46,10 @@
             </ul>
             <div class="join">
               <button class="btn login--btn">Login</button>
-              <i class="fa-solid fa-cart-shopping cart"></i>
+              <div class="shopping-cart-icon">
+                <i class="fa-solid fa-cart-shopping cart"></i>
+                <span class="cart-count">0</span>
+              </div>
             </div>
           </div>
         </nav>
@@ -85,7 +88,7 @@
           <ul class="shopping-list">
             <div class="message">
               <i class="fa-solid fa-cart-arrow-down"></i>
-              <p>Your Cart is empty</p>
+              <p class="empty">Your Cart is empty</p>
               <a href="#products" class="return-to-shop btn">Return To Shop</a>
             </div>
           </ul>
@@ -133,7 +136,7 @@
               <div class="product-overlay">
                 <div class="product-buttons">
                   <button class="btn fa-regular fa-eye" data-src="1"></button>
-                  <button class="btn fa-solid fa-cart-shopping add-to-cart"></button>
+                  <button class="btn fa-solid fa-cart-shopping add-to-cart" data-src="1"></button>
                 </div>
 
                 <img src="/product1-compressed.652dec32.webp" class="product-image lazy-img" alt="Image of product 1" data-src="src/images/product1.webp" data-num="1">
@@ -155,7 +158,7 @@
               <div class="product-overlay">
                 <div class="product-buttons">
                   <button class="btn fa-regular fa-eye" data-src="2"></button>
-                  <button class="btn fa-solid fa-cart-shopping add-to-cart"></button>
+                  <button class="btn fa-solid fa-cart-shopping add-to-cart" data-src="2"></button>
                 </div>
                 <img src="/product2-compressed.57d26879.webp" class="product-image lazy-img" alt="Image of product 2" data-src="src/images/product2.webp" data-num="2">
               </div>
@@ -175,7 +178,7 @@
               <div class="product-overlay">
                 <div class="product-buttons">
                   <button class="btn fa-regular fa-eye" data-src="3"></button>
-                  <button class="btn fa-solid fa-cart-shopping add-to-cart"></button>
+                  <button class="btn fa-solid fa-cart-shopping add-to-cart" data-src="3"></button>
                 </div>
                 <img src="/product3-compressed.f6feb254.webp" class="product-image lazy-img" alt="Image of product 3" data-src="src/images/product3.webp" data-num="3">
               </div>
@@ -195,7 +198,7 @@
               <div class="product-overlay">
                 <div class="product-buttons">
                   <button class="btn fa-regular fa-eye" data-src="4"></button>
-                  <button class="btn fa-solid fa-cart-shopping add-to-cart"></button>
+                  <button class="btn fa-solid fa-cart-shopping add-to-cart" data-src="4"></button>
                 </div>
                 <img src="/product4-compressed.befc9c5a.webp" class="product-image lazy-img" alt="Image of product 4" data-src="src/images/product4.webp" data-num="4">
               </div>
@@ -215,7 +218,7 @@
               <div class="product-overlay">
                 <div class="product-buttons">
                   <button class="btn fa-regular fa-eye" data-src="5"></button>
-                  <button class="btn fa-solid fa-cart-shopping add-to-cart"></button>
+                  <button class="btn fa-solid fa-cart-shopping add-to-cart" data-src="5"></button>
                 </div>
                 <img src="/product5-compressed.c7489064.webp" class="product-image lazy-img" data-src="src/images/product5.webp" data-num="5" alt="Image of product 5">
               </div>
@@ -236,7 +239,7 @@
               <div class="product-overlay">
                 <div class="product-buttons">
                   <button class="btn fa-regular fa-eye" data-src="6"></button>
-                  <button class="btn fa-solid fa-cart-shopping add-to-cart"></button>
+                  <button class="btn fa-solid fa-cart-shopping add-to-cart" data-src="6"></button>
                 </div>
                 <img src="/product6-compressed.77d29278.webp" class="product-image lazy-img" alt="Image of product 6" data-src="src/images/product6.webp" data-num="6">
               </div>

@@ -17,9 +17,7 @@ const hearts = document.querySelectorAll(".products .fa-heart");
 const viewProductOverlay = document.querySelector(".view-overlay");
 // const closeViewProduct = document.querySelector(".close-view");
 const shoppingCart = document.querySelector(".cart");
-const addToCartBtn = document.querySelector(".add-to-cart");
 const shopping = document.querySelector(".shopping");
-console.log(shopping);
 const shoppingList = document.querySelector(".shopping-list");
 const shoppingOverlay = document.querySelector(".shopping-overlay");
 const closeCartBtn = document.querySelector(".close-cart");
@@ -165,7 +163,7 @@ const generateViewProduct = function (btn) {
                   </div>
 
                   <i class="fa-regular fa-heart"></i>
-                  <button class="add-to-cart btn">Add to cart</button>
+                  <button class="add-to-cart btn" data-src="${product}">Add to cart</button>
                 </div>
               </div>
             </div>
@@ -183,7 +181,6 @@ const showProduct = function () {
 //hide view product modal
 const hideProduct = function () {
   viewProductOverlay.classList.add("hidden");
-  console.log("shahd");
 };
 
 products.addEventListener("click", function (e) {
@@ -220,20 +217,103 @@ viewProductOverlay.addEventListener("click", function (e) {
 
 //open shopping cart
 const openCart = function () {
-  shoppingOverlay.classList.remove("not-visible");
+  // shoppingOverlay.classList.remove("not-visible");
+  shoppingOverlay.style.visibility = "visible";
   shopping.style.transform = "translateX(0%)";
 };
 //close shopping cart
 const closeCart = function () {
-  shoppingOverlay.classList.add("not-visible");
-  shopping.style.transform = "translateX(30%)";
+  shopping.style.transform = "translateX(40%)";
+  shoppingOverlay.style.visibility = "hidden";
+  // shoppingOverlay.classList.add("not-visible");
 };
 
-//Add to shopping cart
-// const addToCart=function(product){
-//   const name=
-// }
+cart = [];
+
+//extract product data based on which button i have clicked
+const getProductData = function (button) {
+  const productElement = button.closest(".product");
+  const ModalElement = button.closest(".view-product");
+
+  const num = button.dataset.src;
+  const imgUrl = `${imgMap[num]}.webp`;
+
+  const name =
+    productElement?.querySelector(".name").textContent ||
+    ModalElement?.querySelector(".name").textContent;
+
+  const price =
+    productElement?.querySelector(".price").textContent ||
+    ModalElement?.querySelector(".price").textContent;
+
+  const quantity = ModalElement?.querySelector(".quantity").value || 1;
+  return { imgUrl, name, price, quantity: +quantity };
+};
+
+// Add to shopping cart
+const addToCart = function (product) {
+  const existingProduct = cart.find((p) => p.name === product.name);
+
+  if (existingProduct) {
+    existingProduct.quantity += product.quantity;
+  } else {
+    cart.push(product);
+  }
+
+  updateCartUi();
+};
+
+const generateCartMarkup = function (product) {
+  return `
+    <li class="cart-item">
+      <div class="cart-img">
+      <img src="${product.imgUrl}" alt="cart item image"/>
+      </div>
+      <div class="info">
+        <p class="name">${product.name}</p>
+        <p class="price">${product.price}</p>
+        <p class="quantity">${product.quantity}</p>
+        <i class="fa-solid fa-trash delete"></i>
+      </div>
+      
+      
+    </li>
+  `;
+};
+
+const updateCartUi = function () {
+  shoppingList.innerHTML = "";
+  cart.forEach((product) => {
+    const markup = generateCartMarkup(product);
+    shoppingList.insertAdjacentHTML("afterbegin", markup);
+  });
+  //Calculating total number of items in the cart
+  const cartCount = cart.reduce(
+    (total, product) => total + product.quantity,
+    0
+  );
+  document.querySelector(".cart-count").textContent = cartCount;
+};
 
 //Event Listeners for shopping cart
 shoppingCart.addEventListener("click", openCart);
+
 closeCartBtn.addEventListener("click", closeCart);
+
+document.addEventListener("click", function (e) {
+  if (e.target.classList.contains("add-to-cart")) {
+    const product = getProductData(e.target);
+    addToCart(product);
+  }
+});
+
+// shoppingList.addEventListener("click", function (e) {
+//   if (e.target.classList.contains("delete")) {
+//     const item = e.target.closest(".cart-item");
+//     const index = cart.findIndex(
+//       (i) => i.name === item.querySelector(".name").textContent
+//     );
+//     cart.splice(index, 1);
+//     updateCartUi();
+//   }
+// });
