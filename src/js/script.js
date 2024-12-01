@@ -307,13 +307,13 @@ document.addEventListener("click", function (e) {
   }
 });
 
-// shoppingList.addEventListener("click", function (e) {
-//   if (e.target.classList.contains("delete")) {
-//     const item = e.target.closest(".cart-item");
-//     const index = cart.findIndex(
-//       (i) => i.name === item.querySelector(".name").textContent
-//     );
-//     cart.splice(index, 1);
-//     updateCartUi();
-//   }
-// });
+shoppingList.addEventListener("click", function (e) {
+  if (e.target.classList.contains("delete")) {
+    const item = e.target.closest(".cart-item");
+    const index = cart.findIndex(
+      (i) => i.name === item.querySelector(".name").textContent
+    );
+    cart.splice(index, 1);
+    updateCartUi();
+  }
+});
