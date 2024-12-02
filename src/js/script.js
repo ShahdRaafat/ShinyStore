@@ -8,14 +8,7 @@ const loginOverlay = document.querySelector(".login-overlay");
 const closeIcon = document.querySelector(".close-icon");
 const products = document.querySelector(".products");
 const hearts = document.querySelectorAll(".products .fa-heart");
-// const productBtn = document.querySelector(".product-buttons");
-// const plusBtn = document.querySelector('.fa-plus');
-// const minusBtn = document.querySelector('.fa-minus');
-// const quantity = document.querySelector(".input-quantity");
-// const quantityField = document.querySelector(".quantity");
-// const viewProduct = document.querySelectorAll(".fa-eye");
 const viewProductOverlay = document.querySelector(".view-overlay");
-// const closeViewProduct = document.querySelector(".close-view");
 const shoppingCart = document.querySelector(".cart");
 const shopping = document.querySelector(".shopping");
 const shoppingList = document.querySelector(".shopping-list");
@@ -304,6 +297,7 @@ document.addEventListener("click", function (e) {
   if (e.target.classList.contains("add-to-cart")) {
     const product = getProductData(e.target);
     addToCart(product);
+    if (e.target.closest(".view-product")) hideProduct();
   }
 });
 

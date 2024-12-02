@@ -2,9 +2,12 @@
 @import "./landing.css";
 @import "./products.css";
 @import "./shoppingList.css";
+@import "./aboutUs.css";
 
 :root {
   --pinkColor: #ff87b9;
+  --lightPinkColor: #ffd5e6;
+  --grayColor: #696969;
   --mainColor: #e04660;
   --cuteColor: #f9e3e6;
   --secondaryColor: #fae8e0;

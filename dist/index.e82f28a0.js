@@ -609,14 +609,7 @@ const loginOverlay = document.querySelector(".login-overlay");
 const closeIcon = document.querySelector(".close-icon");
 const products = document.querySelector(".products");
 const hearts = document.querySelectorAll(".products .fa-heart");
-// const productBtn = document.querySelector(".product-buttons");
-// const plusBtn = document.querySelector('.fa-plus');
-// const minusBtn = document.querySelector('.fa-minus');
-// const quantity = document.querySelector(".input-quantity");
-// const quantityField = document.querySelector(".quantity");
-// const viewProduct = document.querySelectorAll(".fa-eye");
 const viewProductOverlay = document.querySelector(".view-overlay");
-// const closeViewProduct = document.querySelector(".close-view");
 const shoppingCart = document.querySelector(".cart");
 const shopping = document.querySelector(".shopping");
 const shoppingList = document.querySelector(".shopping-list");
@@ -839,17 +832,17 @@ document.addEventListener("click", function(e) {
     if (e.target.classList.contains("add-to-cart")) {
         const product = getProductData(e.target);
         addToCart(product);
+        if (e.target.closest(".view-product")) hideProduct();
     }
-}); // shoppingList.addEventListener("click", function (e) {
- //   if (e.target.classList.contains("delete")) {
- //     const item = e.target.closest(".cart-item");
- //     const index = cart.findIndex(
- //       (i) => i.name === item.querySelector(".name").textContent
- //     );
- //     cart.splice(index, 1);
- //     updateCartUi();
- //   }
- // });
+});
+shoppingList.addEventListener("click", function(e) {
+    if (e.target.classList.contains("delete")) {
+        const item = e.target.closest(".cart-item");
+        const index = cart.findIndex((i)=>i.name === item.querySelector(".name").textContent);
+        cart.splice(index, 1);
+        updateCartUi();
+    }
+});
 
 },{"../images/product1.webp":"j1T9x","../images/product2.webp":"btEHj","../images/product3.webp":"eDGB7","../images/product4.webp":"irZf1","../images/product5.webp":"cbkMt","../images/product6.webp":"6DI96","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"j1T9x":[function(require,module,exports) {
 module.exports = require("372b33b594c29a6d").getBundleURL("2MSMO") + "product1.2d0e97cb.webp" + "?" + Date.now();
