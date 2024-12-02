@@ -622,6 +622,14 @@ function toggleMenu() {
     join.classList.toggle("show");
 }
 menu.addEventListener("click", toggleMenu);
+// Smooth Scrolling
+links.addEventListener("click", function(e) {
+    e.preventDefault();
+    const id = e.target.getAttribute("href");
+    document.querySelector(id).scrollIntoView({
+        behavior: "smooth"
+    });
+});
 //Show Login Form
 const showModal = function() {
     loginModal.classList.remove("hidden");

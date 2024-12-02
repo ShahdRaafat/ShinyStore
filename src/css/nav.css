@@ -30,10 +30,13 @@ nav {
   transition: 0.4s;
   text-align: center;
 }
-.active-link {
-  color: var(--hotpinkColor);
+.links li a {
+  color: var(--blackColor);
 }
-.links li:hover {
+.active-link {
+  color: var(--hotpinkColor) !important;
+}
+.links li:hover a {
   color: var(--hotpinkColor);
 }
 .join {

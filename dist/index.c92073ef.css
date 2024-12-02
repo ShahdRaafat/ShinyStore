@@ -35,7 +35,15 @@ nav {
   transition: all .4s;
 }
 
-.active-link, .links li:hover {
+.links li a {
+  color: var(--blackColor);
+}
+
+.active-link {
+  color: var(--hotpinkColor) !important;
+}
+
+.links li:hover a {
   color: var(--hotpinkColor);
 }
 
