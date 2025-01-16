@@ -27,6 +27,7 @@
 .product {
   background-color: #f0ecec;
   border-radius: 18px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .product-overlay {
   position: relative;

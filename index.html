@@ -412,7 +412,45 @@
           </div>
         </div>
       </section>
+
+      <section class="recommendations">
+        <div class="container">
+          <div class="recommendations-container">
+            <header><h2>Get Personalized Skincare Recommendations</h2></header>
+            <div class="recommendations-content">
+              <p class="enter">
+                Enter your city to receive weather-based skincare suggestions
+              </p>
+              <form action="" class="recommendations-form">
+                <input
+                  type="text"
+                  name="city"
+                  id="city"
+                  class="city"
+                  placeholder="Enter your city..."
+                />
+                <button type="submit" class="recommend">
+                  Get Recommendations
+                </button>
+              </form>
+            </div>
+            <div class="results hidden">
+              <div class="weather-info">
+                <i class="fa-solid weather-icon"></i>
+                <h3 class="temp"></h3>
+                <p class="humidity"></p>
+                <div class="tip"></div>
+              </div>
+              <h2 class="rec-header">
+                Recommended Products for Today's Weather
+              </h2>
+              <div class="recommended-products"></div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <script type="module" src="/src/js/script.js"></script>
+    <!-- <script type="module" src="/src/js/recommendProducts.js"></script> -->
   </body>
 </html>

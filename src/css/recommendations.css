@@ -1,0 +1,128 @@
+.recommendations {
+  margin-top: 70px;
+}
+.recommendations-container {
+  /* max-width: 100%; */
+  background-color: white;
+  padding: 50px 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.recommendations h2 {
+  font-family: "Delius", cursive !important;
+  margin-bottom: 30px;
+}
+.enter {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--grayColor);
+}
+.recommendations-form {
+  text-align: center;
+}
+.city,
+.recommend {
+  padding: 12px;
+  border-radius: 10px;
+}
+.city {
+  width: 250px;
+  color: var(--hotpinkColor);
+  border: 1px solid var(--hotpinkColor);
+  font-weight: bold;
+}
+.recommend {
+  background-color: var(--hotpinkColor);
+  color: white;
+  border: transparent;
+  margin-left: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 50px 0px;
+}
+.weather-info i {
+  font-size: 35px;
+  margin-bottom: 30px;
+}
+.fa-cloud {
+  color: var(--grayColor);
+}
+.fa-sun {
+  color: orangered;
+}
+.fa-cloud-rain {
+  color: rgb(1, 2, 88);
+}
+.weather-info .temp {
+  font-size: 45px;
+  font-weight: bold;
+  color: var(--hotpinkColor);
+  margin-bottom: 20px;
+}
+.weather-info .humidity {
+  font-weight: bold;
+  font-size: 18px;
+}
+.tip {
+  background: #e3f2fd;
+  padding: 15px 100px;
+  border-radius: 8px;
+  color: #1976d2;
+  font-size: 15px;
+  margin-top: 15px;
+}
+.recommended-products {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+}
+
+.recommendations .product {
+  flex-basis: 35%;
+  transition: 0.3s;
+}
+.recommendations .product .text {
+  margin: 15px;
+}
+.recommendations .product .name {
+  color: black;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.recommendations .product .price {
+  color: var(--hotpinkColor);
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 18px;
+}
+.recommended-products img {
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+.recommended-products .product:hover {
+  transform: translateY(-10px);
+}
+.last-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+@media (max-width: 1000px) {
+  .recommendations .product {
+    flex-basis: 50%;
+  }
+  .tip {
+    padding: 15px;
+    width: 100%;
+  }
+  .recommend {
+    margin-top: 15px;
+  }
+}

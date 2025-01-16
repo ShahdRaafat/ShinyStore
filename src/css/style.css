@@ -3,16 +3,17 @@
 @import "./products.css";
 @import "./shoppingList.css";
 @import "./aboutUs.css";
-
+@import "./recommendations.css";
 :root {
-  --pinkColor: #ff87b9;
+  --hotpinkColor: #ff87b9;
   --lightPinkColor: #ffd5e6;
   --grayColor: #696969;
   --mainColor: #e04660;
   --cuteColor: #f9e3e6;
   --secondaryColor: #fae8e0;
   --whiteColor: #fbf8f7;
-  --hotpinkColor: #fc408f;
+  --darkPinkColor: #fc408f;
+
   --blackColor: #232323;
 }
 a {
@@ -29,6 +30,7 @@ body {
   font-family: "Delius", cursive;
   color: var(--textColor);
   background-color: var(--whiteColor);
+  overflow-x: hidden;
   /* background-color: #fff3ec; */
 }
 h2 {
@@ -42,6 +44,7 @@ header h2 {
 }
 button {
   cursor: pointer;
+  font-weight: bold;
 }
 section {
   margin: 40px 0px;

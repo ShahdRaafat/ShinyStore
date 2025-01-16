@@ -165,7 +165,7 @@ nav {
 }
 
 .inputs input {
-  border: 1px solid var(--pinkColor);
+  border: 1px solid var(--hotpinkColor);
   border-radius: 5px;
   height: 30px;
 }
@@ -334,6 +334,7 @@ nav {
 .product {
   background-color: #f0ecec;
   border-radius: 18px;
+  box-shadow: 0 4px 6px #0000001a;
 }
 
 .product-overlay {
@@ -695,7 +696,7 @@ img:not(.lazy-img) {
 }
 
 .statistics span h3 {
-  color: var(--hotpinkColor);
+  color: var(--darkPinkColor);
   margin-bottom: 12px;
   font-size: 27px;
 }
@@ -706,7 +707,7 @@ img:not(.lazy-img) {
 }
 
 .about-us-description h3 {
-  color: var(--hotpinkColor);
+  color: var(--darkPinkColor);
   margin: 10px 0;
   font-size: 27px;
 }
@@ -744,15 +745,166 @@ img:not(.lazy-img) {
   }
 }
 
+.recommendations {
+  margin-top: 70px;
+}
+
+.recommendations-container {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 50px 40px;
+  box-shadow: 0 4px 6px #0000001a;
+}
+
+.recommendations h2 {
+  margin-bottom: 30px;
+  font-family: Delius, cursive !important;
+}
+
+.enter {
+  text-align: center;
+  color: var(--grayColor);
+  margin-bottom: 30px;
+}
+
+.recommendations-form {
+  text-align: center;
+}
+
+.city, .recommend {
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.city {
+  color: var(--hotpinkColor);
+  border: 1px solid var(--hotpinkColor);
+  width: 250px;
+  font-weight: bold;
+}
+
+.recommend {
+  background-color: var(--hotpinkColor);
+  color: #fff;
+  border: #0000;
+  margin-left: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.weather-info {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0;
+  display: flex;
+}
+
+.weather-info i {
+  margin-bottom: 30px;
+  font-size: 35px;
+}
+
+.fa-cloud {
+  color: var(--grayColor);
+}
+
+.fa-sun {
+  color: #ff4500;
+}
+
+.fa-cloud-rain {
+  color: #010258;
+}
+
+.weather-info .temp {
+  color: var(--hotpinkColor);
+  margin-bottom: 20px;
+  font-size: 45px;
+  font-weight: bold;
+}
+
+.weather-info .humidity {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.tip {
+  color: #1976d2;
+  background: #e3f2fd;
+  border-radius: 8px;
+  margin-top: 15px;
+  padding: 15px 100px;
+  font-size: 15px;
+}
+
+.recommended-products {
+  justify-content: center;
+  gap: 50px;
+  display: flex;
+}
+
+.recommendations .product {
+  flex-basis: 35%;
+  transition: all .3s;
+}
+
+.recommendations .product .text {
+  margin: 15px;
+}
+
+.recommendations .product .name {
+  color: #000;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.recommendations .product .price {
+  color: var(--hotpinkColor);
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.recommended-products img {
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+
+.recommended-products .product:hover {
+  transform: translateY(-10px);
+}
+
+.last-row {
+  justify-content: space-between;
+  margin-top: 15px;
+  display: flex;
+}
+
+@media (width <= 1000px) {
+  .recommendations .product {
+    flex-basis: 50%;
+  }
+
+  .tip {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .recommend {
+    margin-top: 15px;
+  }
+}
+
 :root {
-  --pinkColor: #ff87b9;
+  --hotpinkColor: #ff87b9;
   --lightPinkColor: #ffd5e6;
   --grayColor: #696969;
   --mainColor: #e04660;
   --cuteColor: #f9e3e6;
   --secondaryColor: #fae8e0;
   --whiteColor: #fbf8f7;
-  --hotpinkColor: #fc408f;
+  --darkPinkColor: #fc408f;
   --blackColor: #232323;
 }
 
@@ -770,6 +922,7 @@ body {
   color: var(--textColor);
   background-color: var(--whiteColor);
   font-family: Delius, cursive;
+  overflow-x: hidden;
 }
 
 h2 {
@@ -785,6 +938,7 @@ header h2 {
 
 button {
   cursor: pointer;
+  font-weight: bold;
 }
 
 section {

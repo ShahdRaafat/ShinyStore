@@ -585,6 +585,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"dV6cC":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var _recommendProductsJs = require("./recommendProducts.js");
 // loginOverlay.addEventListener("click", hideModal);
 //lazy loading
 var _product1Webp = require("../images/product1.webp");
@@ -599,6 +600,9 @@ var _product5Webp = require("../images/product5.webp");
 var _product5WebpDefault = parcelHelpers.interopDefault(_product5Webp);
 var _product6Webp = require("../images/product6.webp");
 var _product6WebpDefault = parcelHelpers.interopDefault(_product6Webp);
+const recommendationsForm = document.querySelector(".recommendations-form");
+const cityInput = document.querySelector(".city");
+const weatherResults = document.querySelector(".results");
 const menu = document.querySelector(".menu");
 const items = document.querySelector(".items");
 const links = document.querySelector(".links");
@@ -851,11 +855,169 @@ shoppingList.addEventListener("click", function(e) {
         updateCartUi();
     }
 });
+//Recommend products base on weather
+recommendationsForm.addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const city = cityInput.value.trim();
+    if (city) try {
+        const weatherData = await (0, _recommendProductsJs.getWeatherData)(city);
+        (0, _recommendProductsJs.updateUI)(weatherData);
+        weatherResults.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    } catch (err) {
+        console.error("Error fetching Weather data", err);
+        alert("'Error fetching weather data. Please try again.'");
+    }
+});
 
-},{"../images/product1.webp":"j1T9x","../images/product2.webp":"btEHj","../images/product3.webp":"eDGB7","../images/product4.webp":"irZf1","../images/product5.webp":"cbkMt","../images/product6.webp":"6DI96","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"j1T9x":[function(require,module,exports) {
-module.exports = require("372b33b594c29a6d").getBundleURL("2MSMO") + "product1.2d0e97cb.webp" + "?" + Date.now();
+},{"./recommendProducts.js":"bgMBD","../images/product1.webp":"j1T9x","../images/product2.webp":"btEHj","../images/product3.webp":"eDGB7","../images/product4.webp":"irZf1","../images/product5.webp":"cbkMt","../images/product6.webp":"6DI96","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bgMBD":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "getWeatherData", ()=>getWeatherData);
+parcelHelpers.export(exports, "getWeatherCategory", ()=>getWeatherCategory);
+parcelHelpers.export(exports, "updateUI", ()=>updateUI);
+var _sunscreenWebp = require("../images/sunscreen.webp");
+var _sunscreenWebpDefault = parcelHelpers.interopDefault(_sunscreenWebp);
+var _aloeveraWebp = require("../images/aloevera.webp");
+var _aloeveraWebpDefault = parcelHelpers.interopDefault(_aloeveraWebp);
+var _waterproofWebp = require("../images/waterproof.webp");
+var _waterproofWebpDefault = parcelHelpers.interopDefault(_waterproofWebp);
+var _serumWebp = require("../images/serum.webp");
+var _serumWebpDefault = parcelHelpers.interopDefault(_serumWebp);
+var _bodyButterWebp = require("../images/bodyButter.webp");
+var _bodyButterWebpDefault = parcelHelpers.interopDefault(_bodyButterWebp);
+var _lipBalmWebp = require("../images/lipBalm.webp");
+var _lipBalmWebpDefault = parcelHelpers.interopDefault(_lipBalmWebp);
+const API_KEY = "9ca1eec279b0d19e2fd63afff224821e";
+const recommendedProducts = document.querySelector(".recommended-products");
+const weatherResults = document.querySelector(".results");
+const weatherIcon = document.querySelector(".weather-icon");
+const temperature = document.querySelector(".temp");
+const humidityField = document.querySelector(".humidity");
+const tip = document.querySelector(".tip");
+//Weather Product recommendation
+const weatherProducts = {
+    sunny: [
+        {
+            name: "Sunscreen SPF 50",
+            description: "Lightweight, broad-spectrum protection perfect for sunny days.",
+            price: "500 LE",
+            image: (0, _sunscreenWebpDefault.default)
+        },
+        {
+            name: "Aloevera Gel",
+            description: "Natural made aloevera gel to protect from sun damage.",
+            price: "200 LE",
+            image: (0, _aloeveraWebpDefault.default)
+        }
+    ],
+    rainy: [
+        {
+            name: "Waterproof Moisturizer",
+            description: "Long-lasting hydration that stays put in humid conditions.",
+            price: "300 LE",
+            image: (0, _waterproofWebpDefault.default)
+        },
+        {
+            name: "Anti-Frizz Serum",
+            description: "Keep your hair smooth and protected in humid weather.",
+            price: "350 LE",
+            image: (0, _serumWebpDefault.default)
+        }
+    ],
+    cold: [
+        {
+            name: "Body Butter",
+            description: "Deep moisturizing butter for cold weather protection.",
+            price: "400 LE",
+            image: (0, _bodyButterWebpDefault.default)
+        },
+        {
+            name: "Lip Balm",
+            description: "Protect your Lips from harsh winter conditions.",
+            price: "120 LE",
+            image: (0, _lipBalmWebpDefault.default)
+        }
+    ]
+};
+// Weather tips based on conditions
+const weatherTips = {
+    sunny: "\u2600\uFE0F Sunny day tip: Don't forget your sunscreen and stay hydrated!",
+    rainy: "\uD83C\uDF27\uFE0F Rainy day tip: Use waterproof skincare products to maintain protection!",
+    cold: "\u2744\uFE0F Cold day tip: Focus on moisture barrier protection and hydration!"
+};
+const getWeatherData = async function(city) {
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
+    if (!response.ok) throw new Error("Weather data not found");
+    const data = await response.json();
+    console.log(data);
+    return data;
+};
+const getWeatherCategory = function(temp, weatherMain) {
+    if (temp > 30) return "sunny";
+    if (weatherMain.toLowerCase().includes("rain")) return "rainy";
+    if (temp < 20) return "cold";
+    return "sunny";
+};
+const generateProductMarkup = function(weatherCategory) {
+    const products = weatherProducts[weatherCategory];
+    console.log(products);
+    recommendedProducts.innerHTML = "";
+    products.forEach((product)=>{
+        const markup = `
+        <div class="product">
+                  <img
+                    src=${product.image}
+                    class="product-image"
+                    alt="Image of product recommendation"
+                  />
 
-},{"372b33b594c29a6d":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+                  <div class="text">
+                    <div class="product-description">
+                      <p class="name">${product.name}</p>
+                      <p class="description">
+                        ${product.description}
+                      </p>
+                      <div class="last-row">
+                        <p class="price">${product.price}</p>
+                        <button class="add-to-cart btn">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+    `;
+        recommendedProducts.innerHTML += markup;
+    });
+};
+const updateUI = function(data) {
+    weatherResults.classList.remove("hidden");
+    //extracting info from weather data
+    const temp = Math.round(data.main.temp);
+    console.log(temp);
+    console.log("shahd");
+    const humidity = data.main.humidity;
+    let weatherCategory = getWeatherCategory(temp, data.weather[0].main);
+    let icon = "fa-sun";
+    if (weatherCategory === "rainy") icon = "fa-cloud-rain";
+    else if (weatherCategory === "cold") icon = "fa-cloud";
+    //updating fields of weather data
+    weatherIcon.classList.remove("fa-sun");
+    weatherIcon.classList.remove("fa-cloud");
+    weatherIcon.classList.remove("fa-cloud-rain");
+    weatherIcon.classList.add(icon);
+    temperature.textContent = `${temp}\xb0C`;
+    humidityField.textContent = `Humidity: ${humidity}%`;
+    tip.textContent = weatherTips[weatherCategory];
+    //inserting the recommended products
+    generateProductMarkup(weatherCategory);
+};
+
+},{"../images/sunscreen.webp":"11TKk","../images/aloevera.webp":"kwsYr","../images/waterproof.webp":"2m1Ma","../images/serum.webp":"gecqa","../images/bodyButter.webp":"iyEYa","../images/lipBalm.webp":"irjvC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"11TKk":[function(require,module,exports) {
+module.exports = require("277840b0629ace9c").getBundleURL("2MSMO") + "sunscreen.3810c931.webp" + "?" + Date.now();
+
+},{"277840b0629ace9c":"lgJ39"}],"lgJ39":[function(require,module,exports) {
 "use strict";
 var bundleURL = {};
 function getBundleURLCached(id) {
@@ -890,22 +1052,22 @@ exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 exports.getOrigin = getOrigin;
 
-},{}],"btEHj":[function(require,module,exports) {
-module.exports = require("38cb5134559c76ea").getBundleURL("2MSMO") + "product2.c0433759.webp" + "?" + Date.now();
+},{}],"kwsYr":[function(require,module,exports) {
+module.exports = require("b354ef26a5fe7d3").getBundleURL("2MSMO") + "aloevera.953cab16.webp" + "?" + Date.now();
 
-},{"38cb5134559c76ea":"lgJ39"}],"eDGB7":[function(require,module,exports) {
-module.exports = require("18ef22f8d93c7347").getBundleURL("2MSMO") + "product3.0b56edae.webp" + "?" + Date.now();
+},{"b354ef26a5fe7d3":"lgJ39"}],"2m1Ma":[function(require,module,exports) {
+module.exports = require("69ee3eb381c73f6c").getBundleURL("2MSMO") + "waterproof.f37293ec.webp" + "?" + Date.now();
 
-},{"18ef22f8d93c7347":"lgJ39"}],"irZf1":[function(require,module,exports) {
-module.exports = require("6672d1fce1da7df7").getBundleURL("2MSMO") + "product4.320f92b3.webp" + "?" + Date.now();
+},{"69ee3eb381c73f6c":"lgJ39"}],"gecqa":[function(require,module,exports) {
+module.exports = require("8017cf556310cbe").getBundleURL("2MSMO") + "serum.19ec5238.webp" + "?" + Date.now();
 
-},{"6672d1fce1da7df7":"lgJ39"}],"cbkMt":[function(require,module,exports) {
-module.exports = require("a6f9f6bb9d1e0e5").getBundleURL("2MSMO") + "product5.7c539135.webp" + "?" + Date.now();
+},{"8017cf556310cbe":"lgJ39"}],"iyEYa":[function(require,module,exports) {
+module.exports = require("105f279c4abdd99d").getBundleURL("2MSMO") + "bodyButter.012aafd1.webp" + "?" + Date.now();
 
-},{"a6f9f6bb9d1e0e5":"lgJ39"}],"6DI96":[function(require,module,exports) {
-module.exports = require("31879eba3e4b812").getBundleURL("2MSMO") + "product6.d65a6cb8.webp" + "?" + Date.now();
+},{"105f279c4abdd99d":"lgJ39"}],"irjvC":[function(require,module,exports) {
+module.exports = require("197f63b198021303").getBundleURL("2MSMO") + "lipBalm.f0393f3e.webp" + "?" + Date.now();
 
-},{"31879eba3e4b812":"lgJ39"}],"gkKU3":[function(require,module,exports) {
+},{"197f63b198021303":"lgJ39"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -935,6 +1097,24 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["2L15i","dV6cC"], "dV6cC", "parcelRequirecce0")
+},{}],"j1T9x":[function(require,module,exports) {
+module.exports = require("372b33b594c29a6d").getBundleURL("2MSMO") + "product1.2d0e97cb.webp" + "?" + Date.now();
+
+},{"372b33b594c29a6d":"lgJ39"}],"btEHj":[function(require,module,exports) {
+module.exports = require("38cb5134559c76ea").getBundleURL("2MSMO") + "product2.c0433759.webp" + "?" + Date.now();
+
+},{"38cb5134559c76ea":"lgJ39"}],"eDGB7":[function(require,module,exports) {
+module.exports = require("18ef22f8d93c7347").getBundleURL("2MSMO") + "product3.0b56edae.webp" + "?" + Date.now();
+
+},{"18ef22f8d93c7347":"lgJ39"}],"irZf1":[function(require,module,exports) {
+module.exports = require("6672d1fce1da7df7").getBundleURL("2MSMO") + "product4.320f92b3.webp" + "?" + Date.now();
+
+},{"6672d1fce1da7df7":"lgJ39"}],"cbkMt":[function(require,module,exports) {
+module.exports = require("a6f9f6bb9d1e0e5").getBundleURL("2MSMO") + "product5.7c539135.webp" + "?" + Date.now();
+
+},{"a6f9f6bb9d1e0e5":"lgJ39"}],"6DI96":[function(require,module,exports) {
+module.exports = require("31879eba3e4b812").getBundleURL("2MSMO") + "product6.d65a6cb8.webp" + "?" + Date.now();
+
+},{"31879eba3e4b812":"lgJ39"}]},["2L15i","dV6cC"], "dV6cC", "parcelRequirecce0")
 
 //# sourceMappingURL=index.e82f28a0.js.map

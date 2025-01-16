@@ -1,3 +1,11 @@
+import {
+  getWeatherData,
+  getWeatherCategory,
+  updateUI,
+} from "./recommendProducts.js";
+const recommendationsForm = document.querySelector(".recommendations-form");
+const cityInput = document.querySelector(".city");
+const weatherResults = document.querySelector(".results");
 const menu = document.querySelector(".menu");
 const items = document.querySelector(".items");
 const links = document.querySelector(".links");
@@ -316,5 +324,21 @@ shoppingList.addEventListener("click", function (e) {
     );
     cart.splice(index, 1);
     updateCartUi();
+  }
+});
+
+//Recommend products base on weather
+recommendationsForm.addEventListener("submit", async function (e) {
+  e.preventDefault();
+  const city = cityInput.value.trim();
+  if (city) {
+    try {
+      const weatherData = await getWeatherData(city);
+      updateUI(weatherData);
+      weatherResults.scrollIntoView({ behavior: "smooth", block: "start" });
+    } catch (err) {
+      console.error("Error fetching Weather data", err);
+      alert("'Error fetching weather data. Please try again.'");
+    }
   }
 });
