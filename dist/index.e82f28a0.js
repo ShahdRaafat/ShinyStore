@@ -586,6 +586,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 },{}],"dV6cC":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _recommendProductsJs = require("./recommendProducts.js");
+var _sliderJs = require("./slider.js");
 // loginOverlay.addEventListener("click", hideModal);
 //lazy loading
 var _product1Webp = require("../images/product1.webp");
@@ -871,8 +872,31 @@ recommendationsForm.addEventListener("submit", async function(e) {
         alert("'Error fetching weather data. Please try again.'");
     }
 });
+//Slider
+//Slider Elements
+const btnLeft = document.querySelector(".fa-arrow-left");
+const btnRight = document.querySelector(".fa-arrow-right");
+const dotsContainer = document.querySelector(".dots");
+//Initializing
+(0, _sliderJs.init)();
+//Slider Event Listeners
+btnRight.addEventListener("click", (0, _sliderJs.nextSlide));
+btnLeft.addEventListener("click", (0, _sliderJs.prevSlide));
+document.addEventListener("keydown", function(e) {
+    if (e.key === "ArrowRight") (0, _sliderJs.nextSlide)();
+    else if (e.key === "ArrowLeft") (0, _sliderJs.prevSlide)();
+});
+//Event Delegation <3
+dotsContainer.addEventListener("click", function(e) {
+    if (e.target.classList.contains("dots__dot")) {
+        const { slide } = e.target.dataset;
+        console.log(slide);
+        (0, _sliderJs.goToSlide)(slide);
+        (0, _sliderJs.activateDots)(slide);
+    }
+});
 
-},{"./recommendProducts.js":"bgMBD","../images/product1.webp":"j1T9x","../images/product2.webp":"btEHj","../images/product3.webp":"eDGB7","../images/product4.webp":"irZf1","../images/product5.webp":"cbkMt","../images/product6.webp":"6DI96","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bgMBD":[function(require,module,exports) {
+},{"./recommendProducts.js":"bgMBD","../images/product1.webp":"j1T9x","../images/product2.webp":"btEHj","../images/product3.webp":"eDGB7","../images/product4.webp":"irZf1","../images/product5.webp":"cbkMt","../images/product6.webp":"6DI96","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./slider.js":"aMYz0"}],"bgMBD":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "getWeatherData", ()=>getWeatherData);
@@ -1115,6 +1139,52 @@ module.exports = require("a6f9f6bb9d1e0e5").getBundleURL("2MSMO") + "product5.7c
 },{"a6f9f6bb9d1e0e5":"lgJ39"}],"6DI96":[function(require,module,exports) {
 module.exports = require("31879eba3e4b812").getBundleURL("2MSMO") + "product6.d65a6cb8.webp" + "?" + Date.now();
 
-},{"31879eba3e4b812":"lgJ39"}]},["2L15i","dV6cC"], "dV6cC", "parcelRequirecce0")
+},{"31879eba3e4b812":"lgJ39"}],"aMYz0":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "init", ()=>init);
+parcelHelpers.export(exports, "prevSlide", ()=>prevSlide);
+parcelHelpers.export(exports, "nextSlide", ()=>nextSlide);
+parcelHelpers.export(exports, "activateDots", ()=>activateDots);
+parcelHelpers.export(exports, "goToSlide", ()=>goToSlide);
+const slides = document.querySelectorAll(".slide");
+const dotsContainer = document.querySelector(".dots");
+let curSlide = 0;
+const lastSlide = slides.length - 1;
+const goToSlide = function(slide) {
+    slides.forEach((s, i)=>{
+        s.style.transform = `translateX(${(i - slide) * 100}%)`;
+    });
+};
+const prevSlide = function(slide) {
+    if (curSlide === 0) curSlide = lastSlide;
+    else curSlide--;
+    goToSlide(curSlide);
+    activateDots(curSlide);
+};
+const nextSlide = function() {
+    if (curSlide === lastSlide) curSlide = 0;
+    else curSlide++;
+    goToSlide(curSlide);
+    activateDots(curSlide);
+};
+const createDots = function() {
+    slides.forEach((_, i)=>{
+        dotsContainer.insertAdjacentHTML("beforeend", `
+            <button class="dots__dot" data-slide=${i}></button>
+            `);
+    });
+};
+const activateDots = function(slide) {
+    document.querySelectorAll(".dots__dot").forEach((dot)=>dot.classList.remove("dots__dot--active"));
+    document.querySelector(`.dots__dot[data-slide="${slide}"]`).classList.add("dots__dot--active");
+};
+const init = function() {
+    goToSlide(curSlide);
+    createDots();
+    activateDots(curSlide);
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["2L15i","dV6cC"], "dV6cC", "parcelRequirecce0")
 
 //# sourceMappingURL=index.e82f28a0.js.map

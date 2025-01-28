@@ -1,0 +1,116 @@
+.slider {
+  width: 900px;
+  height: 450px;
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.slide {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  padding: 0px 40px;
+  background-color: #fff;
+  border-radius: 15px;
+  margin-top: 30px;
+  transition: transform 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slide::before {
+  content: "\201C";
+  position: absolute;
+  top: -10%;
+  left: 0%;
+  line-height: 1;
+  font-size: 200;
+  font-family: inherit;
+  color: var(--hotpinkColor);
+  z-index: -1;
+}
+.review {
+  width: 80%;
+}
+.testimonials-title h3 {
+  font-size: 30px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.testimonials-title h3:first-of-type {
+  color: var(--hotpinkColor);
+  font-size: 25px;
+}
+.slide h4 {
+  color: var(--hotpinkColor);
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+.slide blockquote {
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 35px;
+  color: var(--grayColor);
+}
+.customer-info {
+  display: grid;
+  grid-template-columns: 85px 1fr;
+  column-gap: 30px;
+}
+.customer-image img {
+  border-radius: 50%;
+}
+.about-customer {
+  align-self: center;
+}
+.about-customer h5 {
+  font-size: 22px;
+  margin-bottom: 18px;
+  color: var(--hotpinkColor);
+}
+.about-customer p {
+  font-size: 18px;
+  color: var(--grayColor);
+}
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--hotpinkColor);
+  color: white;
+  cursor: pointer;
+  font-size: 30px;
+  z-index: 10;
+}
+.fa-arrow-left {
+  left: 2%;
+}
+.fa-arrow-right {
+  right: 2%;
+}
+.dots {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+.dots__dot {
+  border: none;
+  background-color: #b9b9b9;
+  opacity: 0.7;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  margin-right: 17px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.dots__dot--active {
+  background-color: #888;
+  opacity: 1;
+}

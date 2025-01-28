@@ -896,6 +896,141 @@ img:not(.lazy-img) {
   }
 }
 
+.slider {
+  width: 900px;
+  height: 450px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  background-color: #fff;
+  border-radius: 15px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 30px;
+  padding: 0 40px;
+  transition: transform .5s;
+  display: flex;
+  position: absolute;
+  top: 0;
+}
+
+.slide:before {
+  content: "“";
+  color: var(--hotpinkColor);
+  z-index: -1;
+  font-family: inherit;
+  font-size: 200px;
+  line-height: 1;
+  position: absolute;
+  top: -10%;
+  left: 0%;
+}
+
+.review {
+  width: 80%;
+}
+
+.testimonials-title h3 {
+  margin-bottom: 10px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.testimonials-title h3:first-of-type {
+  color: var(--hotpinkColor);
+  font-size: 25px;
+}
+
+.slide h4 {
+  color: var(--hotpinkColor);
+  margin-bottom: 30px;
+  font-size: 30px;
+}
+
+.slide blockquote {
+  color: var(--grayColor);
+  margin-bottom: 35px;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.customer-info {
+  grid-template-columns: 85px 1fr;
+  column-gap: 30px;
+  display: grid;
+}
+
+.customer-image img {
+  border-radius: 50%;
+}
+
+.about-customer {
+  align-self: center;
+}
+
+.about-customer h5 {
+  color: var(--hotpinkColor);
+  margin-bottom: 18px;
+  font-size: 22px;
+}
+
+.about-customer p {
+  color: var(--grayColor);
+  font-size: 18px;
+}
+
+.slider-btn {
+  background-color: var(--hotpinkColor);
+  color: #fff;
+  cursor: pointer;
+  z-index: 10;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+}
+
+.fa-arrow-left {
+  left: 2%;
+}
+
+.fa-arrow-right {
+  right: 2%;
+}
+
+.dots {
+  display: flex;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dots__dot {
+  opacity: .7;
+  cursor: pointer;
+  background-color: #b9b9b9;
+  border: none;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin-right: 17px;
+  transition: all .5s;
+}
+
+.dots__dot--active {
+  opacity: 1;
+  background-color: #888;
+}
+
 :root {
   --hotpinkColor: #ff87b9;
   --lightPinkColor: #ffd5e6;
@@ -932,8 +1067,8 @@ h2 {
 header h2 {
   color: var(--hotpinkColor);
   text-align: center;
-  margin: 20px;
-  font-size: 30px;
+  margin: 40px;
+  font-size: 35px;
 }
 
 button {

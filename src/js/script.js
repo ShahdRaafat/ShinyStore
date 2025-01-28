@@ -3,6 +3,14 @@ import {
   getWeatherCategory,
   updateUI,
 } from "./recommendProducts.js";
+import {
+  init,
+  nextSlide,
+  prevSlide,
+  activateDots,
+  goToSlide,
+} from "./slider.js";
+
 const recommendationsForm = document.querySelector(".recommendations-form");
 const cityInput = document.querySelector(".city");
 const weatherResults = document.querySelector(".results");
@@ -340,5 +348,30 @@ recommendationsForm.addEventListener("submit", async function (e) {
       console.error("Error fetching Weather data", err);
       alert("'Error fetching weather data. Please try again.'");
     }
+  }
+});
+
+//Slider
+//Slider Elements
+const btnLeft = document.querySelector(".fa-arrow-left");
+const btnRight = document.querySelector(".fa-arrow-right");
+const dotsContainer = document.querySelector(".dots");
+//Initializing
+init();
+//Slider Event Listeners
+btnRight.addEventListener("click", nextSlide);
+btnLeft.addEventListener("click", prevSlide);
+document.addEventListener("keydown", function (e) {
+  if (e.key === "ArrowRight") {
+    nextSlide();
+  } else if (e.key === "ArrowLeft") prevSlide();
+});
+//Event Delegation <3
+dotsContainer.addEventListener("click", function (e) {
+  if (e.target.classList.contains("dots__dot")) {
+    const { slide } = e.target.dataset;
+    console.log(slide);
+    goToSlide(slide);
+    activateDots(slide);
   }
 });

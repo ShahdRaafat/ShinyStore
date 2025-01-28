@@ -4,6 +4,7 @@
 @import "./shoppingList.css";
 @import "./aboutUs.css";
 @import "./recommendations.css";
+@import "./slider.css";
 :root {
   --hotpinkColor: #ff87b9;
   --lightPinkColor: #ffd5e6;
@@ -39,8 +40,8 @@ h2 {
 header h2 {
   color: var(--hotpinkColor);
   text-align: center;
-  margin: 20px;
-  font-size: 30px;
+  margin: 40px;
+  font-size: 35px;
 }
 button {
   cursor: pointer;
