@@ -420,8 +420,8 @@
 
 .fa-stack-1x, .fa-stack-2x {
   text-align: center;
-  z-index: var(--fa-stack-z-index, auto);
   width: 100%;
+  z-index: var(--fa-stack-z-index, auto);
   position: absolute;
   left: 0;
 }

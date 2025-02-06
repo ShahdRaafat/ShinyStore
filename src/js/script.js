@@ -9,6 +9,10 @@ import {
   prevSlide,
   activateDots,
   goToSlide,
+  updateCurSlide,
+  moveNext,
+  movePrev,
+  startAutoplay,
 } from "./slider.js";
 
 const recommendationsForm = document.querySelector(".recommendations-form");
@@ -62,31 +66,33 @@ closeIcon.addEventListener("click", hideModal);
 // loginOverlay.addEventListener("click", hideModal);
 
 //lazy loading
-import product1 from "../images/product1.webp";
-import product2 from "../images/product2.webp";
-import product3 from "../images/product3.webp";
-import product4 from "../images/product4.webp";
-import product5 from "../images/product5.webp";
-import product6 from "../images/product6.webp";
-const imgMap = {
-  1: product1,
-  2: product2,
-  3: product3,
-  4: product4,
-  5: product5,
-  6: product6,
-};
 
 const imgTargets = document.querySelectorAll("img[data-src]");
 
+// const lazyloading = function (entries, observer) {
+//   entries.forEach((entry) => {
+//     if (!entry.isIntersecting) return;
+
+//     const img = entry.target;
+//     const imgNum = img.dataset.num;
+//     if (imgMap[imgNum]) {
+//       img.src = imgMap[imgNum]; // Set the actual src
+//       img.addEventListener("load", function () {
+//         img.classList.remove("lazy-img");
+//       });
+//     }
+
+//     observer.unobserve(img);
+//   });
+// };
 const lazyloading = function (entries, observer) {
   entries.forEach((entry) => {
     if (!entry.isIntersecting) return;
 
     const img = entry.target;
-    const imgNum = img.dataset.num;
-    if (imgMap[imgNum]) {
-      img.src = imgMap[imgNum]; // Set the actual src
+    console.log(img);
+    if (img) {
+      img.src = img.dataset.src; // Set the actual src
       img.addEventListener("load", function () {
         img.classList.remove("lazy-img");
       });
@@ -152,7 +158,7 @@ const generateViewProduct = function (btn) {
   const remainingPieces = Math.floor(Math.random() * 10) + 1;
   const markup = `<div class="view-product">
             <div class="view-image">
-              <img src="${imgMap[product]}.webp" alt="product-1" />
+              <img src="public/images/product${product}.webp" alt="product-1" />
             </div>
             <div class="view-info">
               <i class="fa-solid fa-xmark close-view"></i>
@@ -199,7 +205,7 @@ const hideProduct = function () {
   viewProductOverlay.classList.add("hidden");
 };
 
-products.addEventListener("click", function (e) {
+document.addEventListener("click", function (e) {
   const view = e.target.closest(".fa-eye");
   if (!view) return;
   generateViewProduct(view);
@@ -252,7 +258,7 @@ const getProductData = function (button) {
   const ModalElement = button.closest(".view-product");
 
   const num = button.dataset.src;
-  const imgUrl = `${imgMap[num]}.webp`;
+  const imgUrl = `public/images/product${num}.webp`;
 
   const name =
     productElement?.querySelector(".name").textContent ||
@@ -350,8 +356,13 @@ recommendationsForm.addEventListener("submit", async function (e) {
     }
   }
 });
-
-//Slider
+//productSlider
+const btnLeftProduct = document.querySelector(".fa-angle-left");
+const btnRightProduct = document.querySelector(".fa-angle-right");
+startAutoplay();
+btnLeftProduct.addEventListener("click", movePrev);
+btnRightProduct.addEventListener("click", moveNext);
+//Testimonials Slider
 //Slider Elements
 const btnLeft = document.querySelector(".fa-arrow-left");
 const btnRight = document.querySelector(".fa-arrow-right");
@@ -370,7 +381,7 @@ document.addEventListener("keydown", function (e) {
 dotsContainer.addEventListener("click", function (e) {
   if (e.target.classList.contains("dots__dot")) {
     const { slide } = e.target.dataset;
-    console.log(slide);
+    updateCurSlide(+slide);
     goToSlide(slide);
     activateDots(slide);
   }

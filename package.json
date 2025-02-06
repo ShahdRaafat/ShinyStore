@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "Skincare Store ",
   "scripts": {
-    "start": "parcel index.html",
-    "bulid": "parcel build index.html"
+    "start": "parcel serve index.html ",
+    "bulid": "parcel build index.html "
   },
   "author": "shahd",
   "license": "ISC",
   "devDependencies": {
-    "parcel": "^2.12.0"
+    "parcel": "^2.13.3"
   },
   "extends": "@parcel/config-default",
   "transformers": {

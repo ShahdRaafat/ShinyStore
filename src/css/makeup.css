@@ -1,0 +1,61 @@
+/* .makeup-container {
+  overflow: hidden;
+} */
+.makeup .wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  /* padding: 0px 200px; */
+  /* max-height: 500px; */
+}
+.makeup .slider {
+  display: flex;
+  column-gap: 20px;
+  transition: transform 0.4s ease-in-out;
+  /* height: 100%; */
+}
+.makeup .slide {
+  min-width: calc((100% - 54px) / 4);
+  height: 350px;
+
+  /* height: fit-content; */
+}
+/* .makeup .slide:first-of-type {
+  transform: translateX(100%);
+} */
+@media (max-width: 1200px) {
+  .makeup .slide {
+    min-width: calc((100% - 37px) / 3);
+  }
+}
+
+@media (max-width: 992px) {
+  .makeup .slide {
+    min-width: calc((100% - 17px) / 2);
+  }
+}
+@media (max-width: 768px) {
+  .makeup .slide {
+    min-width: 100%;
+  }
+}
+
+.makeup .product-overlay {
+  height: 60%;
+}
+.makeup .slider-btn {
+  color: var(--darkPinkColor);
+  border: none;
+  background-color: transparent;
+  font-size: 30px;
+  z-index: 100;
+}
+.makeup .fa-angle-left {
+  left: -2px;
+}
+.makeup .fa-angle-right {
+  right: -2px;
+}

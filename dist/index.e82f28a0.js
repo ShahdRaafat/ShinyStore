@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"2L15i":[function(require,module,exports) {
+})({"aDUUU":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -197,7 +197,7 @@ declare var __parcel__import__: (string) => Promise<void>;
 declare var __parcel__importScripts__: (string) => Promise<void>;
 declare var globalThis: typeof self;
 declare var ServiceWorkerGlobalScope: Object;
-*/ var OVERLAY_ID = "__parcel__error__overlay__";
+*/ var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
 function Module(moduleName) {
     OldModule.call(this, moduleName);
@@ -216,71 +216,65 @@ function Module(moduleName) {
 }
 module.bundle.Module = Module;
 module.bundle.hotData = {};
-var checkedAssets /*: {|[string]: boolean|} */ , assetsToDispose /*: Array<[ParcelRequire, string]> */ , assetsToAccept /*: Array<[ParcelRequire, string]> */ ;
+var checkedAssets /*: {|[string]: boolean|} */ , disposedAssets /*: {|[string]: boolean|} */ , assetsToDispose /*: Array<[ParcelRequire, string]> */ , assetsToAccept /*: Array<[ParcelRequire, string]> */ ;
 function getHostname() {
-    return HMR_HOST || (location.protocol.indexOf("http") === 0 ? location.hostname : "localhost");
+    return HMR_HOST || (location.protocol.indexOf('http') === 0 ? location.hostname : 'localhost');
 }
 function getPort() {
     return HMR_PORT || location.port;
 }
 // eslint-disable-next-line no-redeclare
 var parent = module.bundle.parent;
-if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== "undefined") {
+if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
     var hostname = getHostname();
     var port = getPort();
-    var protocol = HMR_SECURE || location.protocol == "https:" && ![
-        "localhost",
-        "127.0.0.1",
-        "0.0.0.0"
-    ].includes(hostname) ? "wss" : "ws";
+    var protocol = HMR_SECURE || location.protocol == 'https:' && ![
+        'localhost',
+        '127.0.0.1',
+        '0.0.0.0'
+    ].includes(hostname) ? 'wss' : 'ws';
     var ws;
-    if (HMR_USE_SSE) ws = new EventSource("/__parcel_hmr");
+    if (HMR_USE_SSE) ws = new EventSource('/__parcel_hmr');
     else try {
-        ws = new WebSocket(protocol + "://" + hostname + (port ? ":" + port : "") + "/");
+        ws = new WebSocket(protocol + '://' + hostname + (port ? ':' + port : '') + '/');
     } catch (err) {
         if (err.message) console.error(err.message);
         ws = {};
     }
     // Web extension context
-    var extCtx = typeof browser === "undefined" ? typeof chrome === "undefined" ? null : chrome : browser;
+    var extCtx = typeof browser === 'undefined' ? typeof chrome === 'undefined' ? null : chrome : browser;
     // Safari doesn't support sourceURL in error stacks.
     // eval may also be disabled via CSP, so do a quick check.
     var supportsSourceURL = false;
     try {
         (0, eval)('throw new Error("test"); //# sourceURL=test.js');
     } catch (err) {
-        supportsSourceURL = err.stack.includes("test.js");
+        supportsSourceURL = err.stack.includes('test.js');
     }
     // $FlowFixMe
     ws.onmessage = async function(event /*: {data: string, ...} */ ) {
         checkedAssets = {} /*: {|[string]: boolean|} */ ;
+        disposedAssets = {} /*: {|[string]: boolean|} */ ;
         assetsToAccept = [];
         assetsToDispose = [];
         var data /*: HMRMessage */  = JSON.parse(event.data);
-        if (data.type === "update") {
+        if (data.type === 'reload') fullReload();
+        else if (data.type === 'update') {
             // Remove error overlay if there is one
-            if (typeof document !== "undefined") removeErrorOverlay();
+            if (typeof document !== 'undefined') removeErrorOverlay();
             let assets = data.assets.filter((asset)=>asset.envHash === HMR_ENV_HASH);
             // Handle HMR Update
             let handled = assets.every((asset)=>{
-                return asset.type === "css" || asset.type === "js" && hmrAcceptCheck(module.bundle.root, asset.id, asset.depsByBundle);
+                return asset.type === 'css' || asset.type === 'js' && hmrAcceptCheck(module.bundle.root, asset.id, asset.depsByBundle);
             });
             if (handled) {
                 console.clear();
                 // Dispatch custom event so other runtimes (e.g React Refresh) are aware.
-                if (typeof window !== "undefined" && typeof CustomEvent !== "undefined") window.dispatchEvent(new CustomEvent("parcelhmraccept"));
+                if (typeof window !== 'undefined' && typeof CustomEvent !== 'undefined') window.dispatchEvent(new CustomEvent('parcelhmraccept'));
                 await hmrApplyUpdates(assets);
-                // Dispose all old assets.
-                let processedAssets = {} /*: {|[string]: boolean|} */ ;
-                for(let i = 0; i < assetsToDispose.length; i++){
-                    let id = assetsToDispose[i][1];
-                    if (!processedAssets[id]) {
-                        hmrDispose(assetsToDispose[i][0], id);
-                        processedAssets[id] = true;
-                    }
-                }
+                hmrDisposeQueue();
                 // Run accept callbacks. This will also re-execute other disposed assets in topological order.
-                processedAssets = {};
+                let processedAssets = {};
                 for(let i = 0; i < assetsToAccept.length; i++){
                     let id = assetsToAccept[i][1];
                     if (!processedAssets[id]) {
@@ -290,13 +284,13 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== "undefined") {
                 }
             } else fullReload();
         }
-        if (data.type === "error") {
+        if (data.type === 'error') {
             // Log parcel errors to console
             for (let ansiDiagnostic of data.diagnostics.ansi){
                 let stack = ansiDiagnostic.codeframe ? ansiDiagnostic.codeframe : ansiDiagnostic.stack;
-                console.error("\uD83D\uDEA8 [parcel]: " + ansiDiagnostic.message + "\n" + stack + "\n\n" + ansiDiagnostic.hints.join("\n"));
+                console.error("\uD83D\uDEA8 [parcel]: " + ansiDiagnostic.message + '\n' + stack + '\n\n' + ansiDiagnostic.hints.join('\n'));
             }
-            if (typeof document !== "undefined") {
+            if (typeof document !== 'undefined') {
                 // Render the fancy html overlay
                 removeErrorOverlay();
                 var overlay = createErrorOverlay(data.diagnostics.html);
@@ -322,7 +316,7 @@ function removeErrorOverlay() {
     }
 }
 function createErrorOverlay(diagnostics) {
-    var overlay = document.createElement("div");
+    var overlay = document.createElement('div');
     overlay.id = OVERLAY_ID;
     let errorHTML = '<div style="background: black; opacity: 0.85; font-size: 16px; color: white; position: fixed; height: 100%; width: 100%; top: 0px; left: 0px; padding: 30px; font-family: Menlo, Consolas, monospace; z-index: 9999;">';
     for (let diagnostic of diagnostics){
@@ -330,7 +324,7 @@ function createErrorOverlay(diagnostics) {
             return `${p}
 <a href="/__parcel_launch_editor?file=${encodeURIComponent(frame.location)}" style="text-decoration: underline; color: #888" onclick="fetch(this.href); return false">${frame.location}</a>
 ${frame.code}`;
-        }, "") : diagnostic.stack;
+        }, '') : diagnostic.stack;
         errorHTML += `
       <div>
         <div style="font-size: 18px; font-weight: bold; margin-top: 20px;">
@@ -338,18 +332,18 @@ ${frame.code}`;
         </div>
         <pre>${stack}</pre>
         <div>
-          ${diagnostic.hints.map((hint)=>"<div>\uD83D\uDCA1 " + hint + "</div>").join("")}
+          ${diagnostic.hints.map((hint)=>"<div>\uD83D\uDCA1 " + hint + '</div>').join('')}
         </div>
-        ${diagnostic.documentation ? `<div>\u{1F4DD} <a style="color: violet" href="${diagnostic.documentation}" target="_blank">Learn more</a></div>` : ""}
+        ${diagnostic.documentation ? `<div>\u{1F4DD} <a style="color: violet" href="${diagnostic.documentation}" target="_blank">Learn more</a></div>` : ''}
       </div>
     `;
     }
-    errorHTML += "</div>";
+    errorHTML += '</div>';
     overlay.innerHTML = errorHTML;
     return overlay;
 }
 function fullReload() {
-    if ("reload" in location) location.reload();
+    if ('reload' in location) location.reload();
     else if (extCtx && extCtx.runtime && extCtx.runtime.reload) extCtx.runtime.reload();
 }
 function getParents(bundle, id) /*: Array<[ParcelRequire, string]> */ {
@@ -368,15 +362,15 @@ function getParents(bundle, id) /*: Array<[ParcelRequire, string]> */ {
     return parents;
 }
 function updateLink(link) {
-    var href = link.getAttribute("href");
+    var href = link.getAttribute('href');
     if (!href) return;
     var newLink = link.cloneNode();
     newLink.onload = function() {
         if (link.parentNode !== null) // $FlowFixMe
         link.parentNode.removeChild(link);
     };
-    newLink.setAttribute("href", // $FlowFixMe
-    href.split("?")[0] + "?" + Date.now());
+    newLink.setAttribute('href', // $FlowFixMe
+    href.split('?')[0] + '?' + Date.now());
     // $FlowFixMe
     link.parentNode.insertBefore(newLink, link.nextSibling);
 }
@@ -387,9 +381,9 @@ function reloadCSS() {
         var links = document.querySelectorAll('link[rel="stylesheet"]');
         for(var i = 0; i < links.length; i++){
             // $FlowFixMe[incompatible-type]
-            var href /*: string */  = links[i].getAttribute("href");
+            var href /*: string */  = links[i].getAttribute('href');
             var hostname = getHostname();
-            var servedFromHMRServer = hostname === "localhost" ? new RegExp("^(https?:\\/\\/(0.0.0.0|127.0.0.1)|localhost):" + getPort()).test(href) : href.indexOf(hostname + ":" + getPort());
+            var servedFromHMRServer = hostname === 'localhost' ? new RegExp('^(https?:\\/\\/(0.0.0.0|127.0.0.1)|localhost):' + getPort()).test(href) : href.indexOf(hostname + ':' + getPort());
             var absolute = /^https?:\/\//i.test(href) && href.indexOf(location.origin) !== 0 && !servedFromHMRServer;
             if (!absolute) updateLink(links[i]);
         }
@@ -397,23 +391,23 @@ function reloadCSS() {
     }, 50);
 }
 function hmrDownload(asset) {
-    if (asset.type === "js") {
-        if (typeof document !== "undefined") {
-            let script = document.createElement("script");
-            script.src = asset.url + "?t=" + Date.now();
-            if (asset.outputFormat === "esmodule") script.type = "module";
+    if (asset.type === 'js') {
+        if (typeof document !== 'undefined') {
+            let script = document.createElement('script');
+            script.src = asset.url + '?t=' + Date.now();
+            if (asset.outputFormat === 'esmodule') script.type = 'module';
             return new Promise((resolve, reject)=>{
                 var _document$head;
                 script.onload = ()=>resolve(script);
                 script.onerror = reject;
                 (_document$head = document.head) === null || _document$head === void 0 || _document$head.appendChild(script);
             });
-        } else if (typeof importScripts === "function") {
+        } else if (typeof importScripts === 'function') {
             // Worker scripts
-            if (asset.outputFormat === "esmodule") return import(asset.url + "?t=" + Date.now());
+            if (asset.outputFormat === 'esmodule') return import(asset.url + '?t=' + Date.now());
             else return new Promise((resolve, reject)=>{
                 try {
-                    importScripts(asset.url + "?t=" + Date.now());
+                    importScripts(asset.url + '?t=' + Date.now());
                     resolve();
                 } catch (err) {
                     reject(err);
@@ -437,7 +431,7 @@ async function hmrApplyUpdates(assets) {
                 var _hmrDownload;
                 return (_hmrDownload = hmrDownload(asset)) === null || _hmrDownload === void 0 ? void 0 : _hmrDownload.catch((err)=>{
                     // Web extension fix
-                    if (extCtx && extCtx.runtime && extCtx.runtime.getManifest().manifest_version == 3 && typeof ServiceWorkerGlobalScope != "undefined" && global instanceof ServiceWorkerGlobalScope) {
+                    if (extCtx && extCtx.runtime && extCtx.runtime.getManifest().manifest_version == 3 && typeof ServiceWorkerGlobalScope != 'undefined' && global instanceof ServiceWorkerGlobalScope) {
                         extCtx.runtime.reload();
                         return;
                     }
@@ -462,8 +456,8 @@ async function hmrApplyUpdates(assets) {
 function hmrApply(bundle /*: ParcelRequire */ , asset /*:  HMRAsset */ ) {
     var modules = bundle.modules;
     if (!modules) return;
-    if (asset.type === "css") reloadCSS();
-    else if (asset.type === "js") {
+    if (asset.type === 'css') reloadCSS();
+    else if (asset.type === 'js') {
         let deps = asset.depsByBundle[bundle.HMR_BUNDLE_ID];
         if (deps) {
             if (modules[asset.id]) {
@@ -485,7 +479,10 @@ function hmrApply(bundle /*: ParcelRequire */ , asset /*:  HMRAsset */ ) {
                 fn,
                 deps
             ];
-        } else if (bundle.parent) hmrApply(bundle.parent, asset);
+        }
+        // Always traverse to the parent bundle, even if we already replaced the asset in this bundle.
+        // This is required in case modules are duplicated. We need to ensure all instances have the updated code.
+        if (bundle.parent) hmrApply(bundle.parent, asset);
     }
 }
 function hmrDelete(bundle, id) {
@@ -555,6 +552,17 @@ function hmrAcceptCheckOne(bundle /*: ParcelRequire */ , id /*: string */ , deps
         return true;
     }
 }
+function hmrDisposeQueue() {
+    // Dispose all old assets.
+    for(let i = 0; i < assetsToDispose.length; i++){
+        let id = assetsToDispose[i][1];
+        if (!disposedAssets[id]) {
+            hmrDispose(assetsToDispose[i][0], id);
+            disposedAssets[id] = true;
+        }
+    }
+    assetsToDispose = [];
+}
 function hmrDispose(bundle /*: ParcelRequire */ , id /*: string */ ) {
     var cached = bundle.cache[id];
     bundle.hotData[id] = {};
@@ -569,38 +577,27 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     bundle(id);
     // Run the accept callbacks in the new version of the module.
     var cached = bundle.cache[id];
-    if (cached && cached.hot && cached.hot._acceptCallbacks.length) cached.hot._acceptCallbacks.forEach(function(cb) {
-        var assetsToAlsoAccept = cb(function() {
-            return getParents(module.bundle.root, id);
-        });
-        if (assetsToAlsoAccept && assetsToAccept.length) {
-            assetsToAlsoAccept.forEach(function(a) {
-                hmrDispose(a[0], a[1]);
+    if (cached && cached.hot && cached.hot._acceptCallbacks.length) {
+        let assetsToAlsoAccept = [];
+        cached.hot._acceptCallbacks.forEach(function(cb) {
+            let additionalAssets = cb(function() {
+                return getParents(module.bundle.root, id);
             });
-            // $FlowFixMe[method-unbinding]
-            assetsToAccept.push.apply(assetsToAccept, assetsToAlsoAccept);
+            if (Array.isArray(additionalAssets) && additionalAssets.length) assetsToAlsoAccept.push(...additionalAssets);
+        });
+        if (assetsToAlsoAccept.length) {
+            let handled = assetsToAlsoAccept.every(function(a) {
+                return hmrAcceptCheck(a[0], a[1]);
+            });
+            if (!handled) return fullReload();
+            hmrDisposeQueue();
         }
-    });
+    }
 }
 
-},{}],"dV6cC":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+},{}],"dV6cC":[function(require,module,exports,__globalThis) {
 var _recommendProductsJs = require("./recommendProducts.js");
 var _sliderJs = require("./slider.js");
-// loginOverlay.addEventListener("click", hideModal);
-//lazy loading
-var _product1Webp = require("../images/product1.webp");
-var _product1WebpDefault = parcelHelpers.interopDefault(_product1Webp);
-var _product2Webp = require("../images/product2.webp");
-var _product2WebpDefault = parcelHelpers.interopDefault(_product2Webp);
-var _product3Webp = require("../images/product3.webp");
-var _product3WebpDefault = parcelHelpers.interopDefault(_product3Webp);
-var _product4Webp = require("../images/product4.webp");
-var _product4WebpDefault = parcelHelpers.interopDefault(_product4Webp);
-var _product5Webp = require("../images/product5.webp");
-var _product5WebpDefault = parcelHelpers.interopDefault(_product5Webp);
-var _product6Webp = require("../images/product6.webp");
-var _product6WebpDefault = parcelHelpers.interopDefault(_product6Webp);
 const recommendationsForm = document.querySelector(".recommendations-form");
 const cityInput = document.querySelector(".city");
 const weatherResults = document.querySelector(".results");
@@ -646,22 +643,30 @@ const hideModal = function() {
 };
 loginBtn.addEventListener("click", showModal);
 closeIcon.addEventListener("click", hideModal);
-const imgMap = {
-    1: (0, _product1WebpDefault.default),
-    2: (0, _product2WebpDefault.default),
-    3: (0, _product3WebpDefault.default),
-    4: (0, _product4WebpDefault.default),
-    5: (0, _product5WebpDefault.default),
-    6: (0, _product6WebpDefault.default)
-};
+// loginOverlay.addEventListener("click", hideModal);
+//lazy loading
 const imgTargets = document.querySelectorAll("img[data-src]");
+// const lazyloading = function (entries, observer) {
+//   entries.forEach((entry) => {
+//     if (!entry.isIntersecting) return;
+//     const img = entry.target;
+//     const imgNum = img.dataset.num;
+//     if (imgMap[imgNum]) {
+//       img.src = imgMap[imgNum]; // Set the actual src
+//       img.addEventListener("load", function () {
+//         img.classList.remove("lazy-img");
+//       });
+//     }
+//     observer.unobserve(img);
+//   });
+// };
 const lazyloading = function(entries, observer) {
     entries.forEach((entry)=>{
         if (!entry.isIntersecting) return;
         const img = entry.target;
-        const imgNum = img.dataset.num;
-        if (imgMap[imgNum]) {
-            img.src = imgMap[imgNum]; // Set the actual src
+        console.log(img);
+        if (img) {
+            img.src = img.dataset.src; // Set the actual src
             img.addEventListener("load", function() {
                 img.classList.remove("lazy-img");
             });
@@ -708,7 +713,7 @@ const generateViewProduct = function(btn) {
     const remainingPieces = Math.floor(Math.random() * 10) + 1;
     const markup = `<div class="view-product">
             <div class="view-image">
-              <img src="${imgMap[product]}.webp" alt="product-1" />
+              <img src="public/images/product${product}.webp" alt="product-1" />
             </div>
             <div class="view-info">
               <i class="fa-solid fa-xmark close-view"></i>
@@ -752,7 +757,7 @@ const showProduct = function() {
 const hideProduct = function() {
     viewProductOverlay.classList.add("hidden");
 };
-products.addEventListener("click", function(e) {
+document.addEventListener("click", function(e) {
     const view = e.target.closest(".fa-eye");
     if (!view) return;
     generateViewProduct(view);
@@ -793,7 +798,7 @@ const getProductData = function(button) {
     const productElement = button.closest(".product");
     const ModalElement = button.closest(".view-product");
     const num = button.dataset.src;
-    const imgUrl = `${imgMap[num]}.webp`;
+    const imgUrl = `public/images/product${num}.webp`;
     const name = productElement?.querySelector(".name").textContent || ModalElement?.querySelector(".name").textContent;
     const price = productElement?.querySelector(".price").textContent || ModalElement?.querySelector(".price").textContent;
     const quantity = ModalElement?.querySelector(".quantity").value || 1;
@@ -872,7 +877,13 @@ recommendationsForm.addEventListener("submit", async function(e) {
         alert("'Error fetching weather data. Please try again.'");
     }
 });
-//Slider
+//productSlider
+const btnLeftProduct = document.querySelector(".fa-angle-left");
+const btnRightProduct = document.querySelector(".fa-angle-right");
+(0, _sliderJs.startAutoplay)();
+btnLeftProduct.addEventListener("click", (0, _sliderJs.movePrev));
+btnRightProduct.addEventListener("click", (0, _sliderJs.moveNext));
+//Testimonials Slider
 //Slider Elements
 const btnLeft = document.querySelector(".fa-arrow-left");
 const btnRight = document.querySelector(".fa-arrow-right");
@@ -890,13 +901,13 @@ document.addEventListener("keydown", function(e) {
 dotsContainer.addEventListener("click", function(e) {
     if (e.target.classList.contains("dots__dot")) {
         const { slide } = e.target.dataset;
-        console.log(slide);
+        (0, _sliderJs.updateCurSlide)(+slide);
         (0, _sliderJs.goToSlide)(slide);
         (0, _sliderJs.activateDots)(slide);
     }
 });
 
-},{"./recommendProducts.js":"bgMBD","../images/product1.webp":"j1T9x","../images/product2.webp":"btEHj","../images/product3.webp":"eDGB7","../images/product4.webp":"irZf1","../images/product5.webp":"cbkMt","../images/product6.webp":"6DI96","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./slider.js":"aMYz0"}],"bgMBD":[function(require,module,exports) {
+},{"./recommendProducts.js":"bgMBD","./slider.js":"aMYz0"}],"bgMBD":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "getWeatherData", ()=>getWeatherData);
@@ -1038,10 +1049,10 @@ const updateUI = function(data) {
     generateProductMarkup(weatherCategory);
 };
 
-},{"../images/sunscreen.webp":"11TKk","../images/aloevera.webp":"kwsYr","../images/waterproof.webp":"2m1Ma","../images/serum.webp":"gecqa","../images/bodyButter.webp":"iyEYa","../images/lipBalm.webp":"irjvC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"11TKk":[function(require,module,exports) {
-module.exports = require("277840b0629ace9c").getBundleURL("2MSMO") + "sunscreen.3810c931.webp" + "?" + Date.now();
+},{"../images/sunscreen.webp":"11TKk","../images/aloevera.webp":"kwsYr","../images/waterproof.webp":"2m1Ma","../images/serum.webp":"gecqa","../images/bodyButter.webp":"iyEYa","../images/lipBalm.webp":"irjvC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"11TKk":[function(require,module,exports,__globalThis) {
+module.exports = require("277840b0629ace9c").getBundleURL('2MSMO') + "sunscreen.3810c931.webp" + "?" + Date.now();
 
-},{"277840b0629ace9c":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+},{"277840b0629ace9c":"lgJ39"}],"lgJ39":[function(require,module,exports,__globalThis) {
 "use strict";
 var bundleURL = {};
 function getBundleURLCached(id) {
@@ -1056,55 +1067,55 @@ function getBundleURL() {
     try {
         throw new Error();
     } catch (err) {
-        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        var matches = ('' + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
         if (matches) // The first two stack frames will be this function and getBundleURLCached.
         // Use the 3rd one, which will be a runtime in the original bundle.
         return getBaseURL(matches[2]);
     }
-    return "/";
+    return '/';
 }
 function getBaseURL(url) {
-    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+    return ('' + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
 }
 // TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
 function getOrigin(url) {
-    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
-    if (!matches) throw new Error("Origin not found");
+    var matches = ('' + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error('Origin not found');
     return matches[0];
 }
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 exports.getOrigin = getOrigin;
 
-},{}],"kwsYr":[function(require,module,exports) {
-module.exports = require("b354ef26a5fe7d3").getBundleURL("2MSMO") + "aloevera.953cab16.webp" + "?" + Date.now();
+},{}],"kwsYr":[function(require,module,exports,__globalThis) {
+module.exports = require("b354ef26a5fe7d3").getBundleURL('2MSMO') + "aloevera.953cab16.webp" + "?" + Date.now();
 
-},{"b354ef26a5fe7d3":"lgJ39"}],"2m1Ma":[function(require,module,exports) {
-module.exports = require("69ee3eb381c73f6c").getBundleURL("2MSMO") + "waterproof.f37293ec.webp" + "?" + Date.now();
+},{"b354ef26a5fe7d3":"lgJ39"}],"2m1Ma":[function(require,module,exports,__globalThis) {
+module.exports = require("69ee3eb381c73f6c").getBundleURL('2MSMO') + "waterproof.f37293ec.webp" + "?" + Date.now();
 
-},{"69ee3eb381c73f6c":"lgJ39"}],"gecqa":[function(require,module,exports) {
-module.exports = require("8017cf556310cbe").getBundleURL("2MSMO") + "serum.19ec5238.webp" + "?" + Date.now();
+},{"69ee3eb381c73f6c":"lgJ39"}],"gecqa":[function(require,module,exports,__globalThis) {
+module.exports = require("8017cf556310cbe").getBundleURL('2MSMO') + "serum.19ec5238.webp" + "?" + Date.now();
 
-},{"8017cf556310cbe":"lgJ39"}],"iyEYa":[function(require,module,exports) {
-module.exports = require("105f279c4abdd99d").getBundleURL("2MSMO") + "bodyButter.012aafd1.webp" + "?" + Date.now();
+},{"8017cf556310cbe":"lgJ39"}],"iyEYa":[function(require,module,exports,__globalThis) {
+module.exports = require("105f279c4abdd99d").getBundleURL('2MSMO') + "bodyButter.012aafd1.webp" + "?" + Date.now();
 
-},{"105f279c4abdd99d":"lgJ39"}],"irjvC":[function(require,module,exports) {
-module.exports = require("197f63b198021303").getBundleURL("2MSMO") + "lipBalm.f0393f3e.webp" + "?" + Date.now();
+},{"105f279c4abdd99d":"lgJ39"}],"irjvC":[function(require,module,exports,__globalThis) {
+module.exports = require("197f63b198021303").getBundleURL('2MSMO') + "lipBalm.f0393f3e.webp" + "?" + Date.now();
 
-},{"197f63b198021303":"lgJ39"}],"gkKU3":[function(require,module,exports) {
+},{"197f63b198021303":"lgJ39"}],"gkKU3":[function(require,module,exports,__globalThis) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
     };
 };
 exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
+    Object.defineProperty(a, '__esModule', {
         value: true
     });
 };
 exports.exportAll = function(source, dest) {
     Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || Object.prototype.hasOwnProperty.call(dest, key)) return;
+        if (key === 'default' || key === '__esModule' || Object.prototype.hasOwnProperty.call(dest, key)) return;
         Object.defineProperty(dest, key, {
             enumerable: true,
             get: function() {
@@ -1121,33 +1132,61 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"j1T9x":[function(require,module,exports) {
-module.exports = require("372b33b594c29a6d").getBundleURL("2MSMO") + "product1.2d0e97cb.webp" + "?" + Date.now();
-
-},{"372b33b594c29a6d":"lgJ39"}],"btEHj":[function(require,module,exports) {
-module.exports = require("38cb5134559c76ea").getBundleURL("2MSMO") + "product2.c0433759.webp" + "?" + Date.now();
-
-},{"38cb5134559c76ea":"lgJ39"}],"eDGB7":[function(require,module,exports) {
-module.exports = require("18ef22f8d93c7347").getBundleURL("2MSMO") + "product3.0b56edae.webp" + "?" + Date.now();
-
-},{"18ef22f8d93c7347":"lgJ39"}],"irZf1":[function(require,module,exports) {
-module.exports = require("6672d1fce1da7df7").getBundleURL("2MSMO") + "product4.320f92b3.webp" + "?" + Date.now();
-
-},{"6672d1fce1da7df7":"lgJ39"}],"cbkMt":[function(require,module,exports) {
-module.exports = require("a6f9f6bb9d1e0e5").getBundleURL("2MSMO") + "product5.7c539135.webp" + "?" + Date.now();
-
-},{"a6f9f6bb9d1e0e5":"lgJ39"}],"6DI96":[function(require,module,exports) {
-module.exports = require("31879eba3e4b812").getBundleURL("2MSMO") + "product6.d65a6cb8.webp" + "?" + Date.now();
-
-},{"31879eba3e4b812":"lgJ39"}],"aMYz0":[function(require,module,exports) {
+},{}],"aMYz0":[function(require,module,exports,__globalThis) {
+//Products slider
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "moveNext", ()=>moveNext);
+parcelHelpers.export(exports, "movePrev", ()=>movePrev);
+parcelHelpers.export(exports, "startAutoplay", ()=>startAutoplay);
+//Testimonial Slider
 parcelHelpers.export(exports, "init", ()=>init);
 parcelHelpers.export(exports, "prevSlide", ()=>prevSlide);
 parcelHelpers.export(exports, "nextSlide", ()=>nextSlide);
 parcelHelpers.export(exports, "activateDots", ()=>activateDots);
 parcelHelpers.export(exports, "goToSlide", ()=>goToSlide);
-const slides = document.querySelectorAll(".slide");
+parcelHelpers.export(exports, "updateCurSlide", ()=>updateCurSlide);
+const slider = document.querySelector(".makeup .slider");
+const productSlides = document.querySelectorAll(".makeup .slide");
+const getVisibleSlides = function() {
+    if (window.innerWidth > 1200) return 4;
+    else if (window.innerWidth > 992 && window.innerWidth <= 1200) return 3;
+    else if (window.innerWidth > 768 && window.innerWidth <= 992) return 2;
+    else return 1;
+};
+let firstSlide = 0;
+let visibleSlides = getVisibleSlides();
+let autoSlideInterval;
+console.log(visibleSlides);
+let totalSlides = productSlides.length;
+const updateSlider = function() {
+    visibleSlides = getVisibleSlides();
+    let slideWidth = productSlides[0].offsetWidth + 20;
+    slider.style.transition = "transform 0.4s ease-in-out";
+    slider.style.transform = `translateX(-${firstSlide * slideWidth}px)`;
+};
+updateSlider();
+const moveNext = function() {
+    if (firstSlide >= totalSlides - visibleSlides) firstSlide = 0;
+    else firstSlide++;
+    updateSlider();
+};
+const movePrev = function() {
+    if (firstSlide <= 0) firstSlide = totalSlides - visibleSlides;
+    else firstSlide--;
+    updateSlider();
+};
+function startAutoplay() {
+    autoSlideInterval = setInterval(()=>{
+        moveNext();
+    }, 3000);
+}
+// function resetAutoplay() {
+//   clearInterval(autoSlideInterval);
+//   startAutoplay();
+// }
+window.addEventListener("resize", updateSlider);
+const slides = document.querySelectorAll(".testimonials .slide");
 const dotsContainer = document.querySelector(".dots");
 let curSlide = 0;
 const lastSlide = slides.length - 1;
@@ -1156,13 +1195,14 @@ const goToSlide = function(slide) {
         s.style.transform = `translateX(${(i - slide) * 100}%)`;
     });
 };
-const prevSlide = function(slide) {
+const prevSlide = function() {
     if (curSlide === 0) curSlide = lastSlide;
     else curSlide--;
     goToSlide(curSlide);
     activateDots(curSlide);
 };
 const nextSlide = function() {
+    console.log(curSlide);
     if (curSlide === lastSlide) curSlide = 0;
     else curSlide++;
     goToSlide(curSlide);
@@ -1179,12 +1219,16 @@ const activateDots = function(slide) {
     document.querySelectorAll(".dots__dot").forEach((dot)=>dot.classList.remove("dots__dot--active"));
     document.querySelector(`.dots__dot[data-slide="${slide}"]`).classList.add("dots__dot--active");
 };
+const updateCurSlide = function(slide) {
+    curSlide = slide;
+    console.log(curSlide);
+};
 const init = function() {
     goToSlide(curSlide);
     createDots();
     activateDots(curSlide);
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["2L15i","dV6cC"], "dV6cC", "parcelRequirecce0")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["aDUUU","dV6cC"], "dV6cC", "parcelRequire94c2")
 
 //# sourceMappingURL=index.e82f28a0.js.map
