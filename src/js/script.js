@@ -349,7 +349,6 @@ const showToast = () => {
 };
 const extractNumber = (price) => parseFloat(price.replace(/[^\d.]/g, ""));
 const calculateTotal = function () {
-  console.log(cart);
   const delivery = 50;
   const totalPrice =
     cart.reduce(

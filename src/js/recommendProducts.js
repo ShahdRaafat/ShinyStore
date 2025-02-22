@@ -74,7 +74,6 @@ const getWeatherData = async function (city) {
     throw new Error("Weather data not found");
   }
   const data = await response.json();
-  console.log(data);
   return data;
 };
 const getWeatherCategory = function (temp, weatherMain) {
@@ -85,7 +84,6 @@ const getWeatherCategory = function (temp, weatherMain) {
 };
 const generateProductMarkup = function (weatherCategory) {
   const products = weatherProducts[weatherCategory];
-  console.log(products);
   recommendedProducts.innerHTML = "";
   products.forEach((product) => {
     const markup = `
@@ -118,8 +116,6 @@ const updateUI = function (data) {
   weatherResults.classList.remove("hidden");
   //extracting info from weather data
   const temp = Math.round(data.main.temp);
-  console.log(temp);
-  console.log("shahd");
   const humidity = data.main.humidity;
 
   let weatherCategory = getWeatherCategory(temp, data.weather[0].main);

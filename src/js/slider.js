@@ -13,7 +13,6 @@ const getVisibleSlides = function () {
 let firstSlide = 0;
 let visibleSlides = getVisibleSlides();
 let autoSlideInterval;
-console.log(visibleSlides);
 let totalSlides = productSlides.length;
 
 const updateSlider = function () {
@@ -72,7 +71,6 @@ const prevSlide = function () {
   activateDots(curSlide);
 };
 const nextSlide = function () {
-  console.log(curSlide);
   if (curSlide === lastSlide) curSlide = 0;
   else curSlide++;
   goToSlide(curSlide);
@@ -98,7 +96,6 @@ const activateDots = function (slide) {
 };
 const updateCurSlide = function (slide) {
   curSlide = slide;
-  console.log(curSlide);
 };
 const init = function () {
   goToSlide(curSlide);
