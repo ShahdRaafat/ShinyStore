@@ -5,7 +5,7 @@
   "default": "index.html",
   "scripts": {
     "start": "parcel serve index.html ",
-    "build": "xcopy /E /I public dist && parcel build index.html --dist-dir ./dist"
+    "build": "cp -r public dist && parcel build index.html --dist-dir ./dist"
   },
   "author": "shahd",
   "license": "ISC",
