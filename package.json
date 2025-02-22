@@ -2,9 +2,10 @@
   "name": "shiny",
   "version": "1.0.0",
   "description": "Skincare Store ",
+  "default": "index.html",
   "scripts": {
     "start": "parcel serve index.html ",
-    "bulid": "parcel build index.html "
+    "build": "xcopy /E /I public dist && parcel build index.html --dist-dir ./dist"
   },
   "author": "shahd",
   "license": "ISC",

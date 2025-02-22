@@ -1,0 +1,146 @@
+footer {
+  background-color: white;
+  padding: 50px 0px 20px;
+}
+footer h3 {
+  color: var(--blackColor);
+  margin-bottom: 50px;
+  font-weight: bold;
+  font-size: 24px;
+  position: relative;
+  display: inline-block;
+}
+footer h3::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 30px;
+  height: 3px;
+  background-color: var(--hotpinkColor);
+  border-radius: 2px;
+}
+.footer-info {
+  display: flex;
+  gap: 80px;
+  min-height: 250px;
+}
+
+.footer-about {
+  flex-basis: 30%;
+}
+.footer-about p {
+  line-height: 1.8;
+  font-size: 15px;
+  color: #666;
+}
+footer .icons {
+  display: flex;
+  gap: 20px;
+  color: var(--hotpinkColor);
+  font-size: 24px;
+  padding-top: 15px;
+}
+footer .icons i:hover {
+  color: var(--darkPinkColor);
+  transform: translateY(-3px);
+}
+.footer-links {
+  flex-basis: 30%;
+}
+footer .link {
+  margin-bottom: 16px;
+}
+footer .link a {
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 15px;
+  position: relative;
+  padding-left: 15px;
+  color: inherit;
+}
+footer .link a::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--hotpinkColor);
+  font-size: 18px;
+  line-height: 1;
+  opacity: 0;
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
+}
+footer .link a:hover::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+.footer-contact {
+  flex-basis: 40%;
+}
+.footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+  transition: transform 0.3s ease;
+}
+.footer-contact-item:hover {
+  transform: translateX(5px);
+}
+.footer-contact-item i {
+  color: var(--hotpinkColor);
+  font-size: 20px;
+  width: 20px;
+  text-align: center;
+}
+.footer-contact-item p {
+  color: #666;
+  font-size: 15px;
+  line-height: 1.4;
+}
+.footer-copyright {
+  text-align: center;
+  padding-top: 30px;
+  border-top: 1px solid #eee;
+  color: #777;
+  font-size: 14px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  footer {
+    padding: 60px 0 30px;
+  }
+
+  .footer-info {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .footer-about,
+  .footer-links,
+  .footer-contact {
+    flex-basis: 100%;
+  }
+
+  footer h3 {
+    margin-bottom: 20px;
+    font-size: 22px;
+  }
+
+  .footer-about p {
+    margin-bottom: 20px;
+  }
+
+  .icons {
+    gap: 25px;
+  }
+
+  .link {
+    margin-bottom: 14px;
+  }
+
+  .footer-contact-item {
+    margin-bottom: 20px;
+  }
+}

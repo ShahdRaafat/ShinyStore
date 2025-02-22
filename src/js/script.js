@@ -34,6 +34,79 @@ const shopping = document.querySelector(".shopping");
 const shoppingList = document.querySelector(".shopping-list");
 const shoppingOverlay = document.querySelector(".shopping-overlay");
 const closeCartBtn = document.querySelector(".close-cart");
+const favoritesList = document.querySelector(".favorites-list");
+const sections = document.querySelectorAll(".section");
+const nav = document.querySelector(".nav-header");
+const header = document.querySelector(".header");
+const navLinks = document.querySelectorAll("nav .link");
+const startBtn = document.querySelector(".start--btn");
+//Revealing Sections
+const revealSection = function (entries, observer) {
+  const entry = entries[0];
+  if (!entry.isIntersecting) return;
+  entry.target.classList.remove("section-hidden");
+  observer.unobserve(entry.target);
+};
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.1,
+});
+sections.forEach((s) => {
+  s.classList.add("section-hidden");
+  sectionObserver.observe(s);
+});
+
+//Sticky nav
+const navHeight = nav.getBoundingClientRect().height;
+
+const stickyNav = function (entries) {
+  const entry = entries[0];
+  if (!entry.isIntersecting) nav.classList.add("sticky");
+  else nav.classList.remove("sticky");
+};
+const navObserver = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${navHeight}px`,
+});
+navObserver.observe(header);
+
+// Activate Nav Link
+const activateLink = function (sec) {
+  if (!sec.id) return;
+  const navLink = document.querySelector(`.${sec.id}-link`);
+  navLinks.forEach((l) => l.classList.remove("active-link"));
+  navLink.classList.add("active-link");
+};
+const activateFunction = function (entries) {
+  const entry = entries[0];
+  if (!entry.isIntersecting) return;
+  activateLink(entry.target);
+};
+const activateObserver = new IntersectionObserver(activateFunction, {
+  root: null,
+  threshold: 0.2,
+});
+sections.forEach((s) => {
+  activateObserver.observe(s);
+});
+
+// Smooth Scrolling
+const scrollTo = function (id) {
+  document.querySelector(id).scrollIntoView({ behavior: "smooth" });
+};
+//nav smooth scrolling
+links.addEventListener("click", function (e) {
+  e.preventDefault();
+  const id = e.target.getAttribute("href");
+  scrollTo(id);
+});
+//button smooth scrolling
+startBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  const id = e.target.getAttribute("href");
+  scrollTo(id);
+});
 
 //nav menu
 function toggleMenu() {
@@ -43,13 +116,6 @@ function toggleMenu() {
 }
 
 menu.addEventListener("click", toggleMenu);
-
-// Smooth Scrolling
-links.addEventListener("click", function (e) {
-  e.preventDefault();
-  const id = e.target.getAttribute("href");
-  document.querySelector(id).scrollIntoView({ behavior: "smooth" });
-});
 
 //Show Login Form
 const showModal = function () {
@@ -63,34 +129,17 @@ const hideModal = function () {
 
 loginBtn.addEventListener("click", showModal);
 closeIcon.addEventListener("click", hideModal);
-// loginOverlay.addEventListener("click", hideModal);
 
 //lazy loading
 
 const imgTargets = document.querySelectorAll("img[data-src]");
 
-// const lazyloading = function (entries, observer) {
-//   entries.forEach((entry) => {
-//     if (!entry.isIntersecting) return;
-
-//     const img = entry.target;
-//     const imgNum = img.dataset.num;
-//     if (imgMap[imgNum]) {
-//       img.src = imgMap[imgNum]; // Set the actual src
-//       img.addEventListener("load", function () {
-//         img.classList.remove("lazy-img");
-//       });
-//     }
-
-//     observer.unobserve(img);
-//   });
-// };
 const lazyloading = function (entries, observer) {
   entries.forEach((entry) => {
     if (!entry.isIntersecting) return;
 
     const img = entry.target;
-    console.log(img);
+
     if (img) {
       img.src = img.dataset.src; // Set the actual src
       img.addEventListener("load", function () {
@@ -110,38 +159,6 @@ const imgObserver = new IntersectionObserver(lazyloading, {
 
 imgTargets.forEach((img) => imgObserver.observe(img));
 
-//Product like button transition
-const fillHeart = function (heart) {
-  heart.classList.remove("fa-regular");
-  heart.classList.add("fa-solid");
-};
-
-const emptyHeart = function (heart) {
-  heart.classList.remove("fa-solid");
-  heart.classList.add("fa-regular");
-};
-const manipulateHeart = function (heart) {
-  let isClicked = false;
-
-  heart.addEventListener("mouseover", function () {
-    if (!isClicked) fillHeart(heart);
-  });
-
-  heart.addEventListener("mouseout", function () {
-    if (!isClicked) emptyHeart(heart);
-  });
-
-  heart.addEventListener("click", function () {
-    isClicked = !isClicked;
-    if (isClicked) {
-      fillHeart(heart);
-    } else {
-      emptyHeart(heart);
-    }
-  });
-};
-hearts.forEach((heart) => manipulateHeart(heart));
-
 //view product info
 const generateViewProduct = function (btn) {
   const product = btn.dataset.src;
@@ -156,12 +173,15 @@ const generateViewProduct = function (btn) {
     `.product-${product} .text .price`
   ).textContent;
   const remainingPieces = Math.floor(Math.random() * 10) + 1;
-  const markup = `<div class="view-product">
+  const markup = `
+  <div class="vieww">
+  <i class="fa-solid fa-xmark close-view"></i>
+  <div class="view-product">
             <div class="view-image">
-              <img src="public/images/product${product}.webp" alt="product-1" />
+              <img src="/images/product${product}.webp" alt="product-1" />
             </div>
             <div class="view-info">
-              <i class="fa-solid fa-xmark close-view"></i>
+              
               <div class="text">
               <h3 class="name">${name}</h3>
                 <h4 class="description">
@@ -184,15 +204,15 @@ const generateViewProduct = function (btn) {
                     <i class="fa-solid fa-plus"></i>
                   </div>
 
-                  <i class="fa-regular fa-heart"></i>
+                  <i class="fa-regular fa-heart" data-src="${product}" ></i>
                   <button class="add-to-cart btn" data-src="${product}">Add to cart</button>
                 </div>
               </div>
             </div>
+          </div>
           </div>`;
   viewProductOverlay.innerHTML = markup;
   const heartIcon = viewProductOverlay.querySelector(".fa-heart");
-  manipulateHeart(heartIcon);
 };
 
 //Show view product modal
@@ -251,7 +271,7 @@ const closeCart = function () {
 };
 
 cart = [];
-
+favorites = [];
 //extract product data based on which button i have clicked
 const getProductData = function (button) {
   const productElement = button.closest(".product");
@@ -272,20 +292,7 @@ const getProductData = function (button) {
   return { imgUrl, name, price, quantity: +quantity };
 };
 
-// Add to shopping cart
-const addToCart = function (product) {
-  const existingProduct = cart.find((p) => p.name === product.name);
-
-  if (existingProduct) {
-    existingProduct.quantity += product.quantity;
-  } else {
-    cart.push(product);
-  }
-
-  updateCartUi();
-};
-
-const generateCartMarkup = function (product) {
+const generateProductMarkup = function (product) {
   return `
     <li class="cart-item">
       <div class="cart-img">
@@ -302,11 +309,24 @@ const generateCartMarkup = function (product) {
     </li>
   `;
 };
+// Add to shopping cart
+const addToCart = function (product) {
+  const existingProduct = cart.find((p) => p.name === product.name);
+
+  if (existingProduct) {
+    existingProduct.quantity += product.quantity;
+  } else {
+    cart.push(product);
+  }
+
+  updateCartUi();
+  showToast();
+};
 
 const updateCartUi = function () {
   shoppingList.innerHTML = "";
   cart.forEach((product) => {
-    const markup = generateCartMarkup(product);
+    const markup = generateProductMarkup(product);
     shoppingList.insertAdjacentHTML("afterbegin", markup);
   });
   //Calculating total number of items in the cart
@@ -315,8 +335,34 @@ const updateCartUi = function () {
     0
   );
   document.querySelector(".cart-count").textContent = cartCount;
+  calculateTotal();
 };
+//Function Showing added Successfully Message
+const showToast = () => {
+  const toast = document.querySelector(".toast");
+  toast.classList.add("show");
 
+  // Hide toast after 3.5 seconds
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3500);
+};
+const extractNumber = (price) => parseFloat(price.replace(/[^\d.]/g, ""));
+const calculateTotal = function () {
+  console.log(cart);
+  const delivery = 50;
+  const totalPrice =
+    cart.reduce(
+      (total, item) =>
+        total + extractNumber(item.price) * Number(item.quantity),
+      0
+    ) + delivery;
+  document.querySelector(".cart-total").innerHTML = `
+    <p>Subtotal: ${totalPrice - delivery} LE</p>
+    <p>Delivery: ${delivery} LE</p>
+    <p><strong>Total: ${totalPrice} LE</strong></p>
+  `;
+};
 //Event Listeners for shopping cart
 shoppingCart.addEventListener("click", openCart);
 
@@ -338,6 +384,98 @@ shoppingList.addEventListener("click", function (e) {
     );
     cart.splice(index, 1);
     updateCartUi();
+  }
+});
+
+//Add to favorites
+
+//Product like button transition
+const fillHeart = function (heart) {
+  heart.classList.remove("fa-regular");
+  heart.classList.add("fa-solid");
+};
+
+const emptyHeart = function (heart) {
+  heart.classList.remove("fa-solid");
+  heart.classList.add("fa-regular");
+};
+// const manipulateHeart = function (heart) {
+//   let isClicked = false;
+
+//   heart.addEventListener("mouseover", function () {
+//     if (!isClicked) fillHeart(heart);
+//   });
+
+//   heart.addEventListener("mouseout", function () {
+//     if (!isClicked) emptyHeart(heart);
+//   });
+
+//   heart.addEventListener("click", function () {
+//     isClicked = !isClicked;
+//     if (isClicked) {
+//       fillHeart(heart);
+//     } else {
+//       emptyHeart(heart);
+//     }
+//   });
+// };
+// hearts.forEach((heart) => manipulateHeart(heart));
+
+// Function to add/remove favorites
+const toggleFavorite = (heart) => {
+  const product = getProductData(heart);
+  const index = favorites.findIndex((p) => p.name === product.name);
+
+  if (index === -1) {
+    // Product not in favorites -> Add it
+    favorites.push(product);
+    fillHeart(heart);
+  } else {
+    // Product exists in favorites -> Remove it
+    favorites.splice(index, 1);
+    emptyHeart(heart);
+  }
+
+  updateFavoritesUi();
+};
+
+const updateFavoritesUi = function () {
+  favoritesList.innerHTML = "";
+  favorites.forEach((product) => {
+    const markup = generateProductMarkup(product);
+    favoritesList.insertAdjacentHTML("afterbegin", markup);
+  });
+};
+//Event Listeners for favorites list
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("fa-heart")) {
+    toggleFavorite(e.target);
+  }
+});
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("delete")) {
+    const item = e.target.closest(".cart-item");
+
+    // Remove from favorites if exists
+    const favIndex = favorites.findIndex(
+      (p) => p.name === item.querySelector(".name").textContent
+    );
+    if (favIndex !== -1) {
+      favorites.splice(favIndex, 1);
+      updateFavoritesUi();
+
+      // Update heart icon to be regular (unfilled)
+      document.querySelectorAll(".fa-heart").forEach((heart) => {
+        const heartProduct = heart.closest(".product");
+        if (
+          heartProduct &&
+          heartProduct.querySelector(".name").textContent ===
+            item.querySelector(".name").textContent
+        ) {
+          emptyHeart(heart);
+        }
+      });
+    }
   }
 });
 

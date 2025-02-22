@@ -8,62 +8,85 @@
     <link rel="stylesheet" href="./src/css/all.min.css" />
     <link rel="stylesheet" href="./src/css/normalize.css" />
 
+    <!--Logo-->
+    <link
+      rel="shortcut icon"
+      href="/src/images/pngtree-skin-care-logo-png-image_5774040.png"
+      type="image/x-icon"
+    />
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- <link
+    <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..400;1,100..400&display=swap"
       rel="stylesheet"
-    /> -->
-    <!-- <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    /> -->
+    />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap"
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Delius&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      as="image"
+      href="src/images/landing.webp"
+      type="image/webp"
     />
 
     <title>Shiny Store</title>
-
-    <!-- JS Link -->
-    <!-- <script type="module" src="/src/js/script.js"></script> -->
   </head>
   <body>
-    <header>
-      <div class="container">
-        <nav>
-          <div class="logo">
-            <img
-              src="src/images/pngtree-skin-care-logo-png-image_5774040.png"
-              alt="website logo"
-            />
-          </div>
-          <i class="fa-solid fa-bars menu"></i>
-          <div class="items">
-            <ul class="links">
-              <li class="link"><a class="active-link">Home</a></li>
-              <li class="link">
-                <a href="#products">Products</a>
-              </li>
-              <li class="link"><a href="#about-us">About Us</a></li>
-              <li class="link"><a href="#services">Services</a></li>
-              <li class="link"><a href="#reviews">Reviews</a></li>
-              <li class="link"><a href="#contact">Contact Us</a></li>
-            </ul>
-            <div class="join">
-              <button class="btn login--btn">Login</button>
-              <div class="shopping-cart-icon">
-                <i class="fa-solid fa-cart-shopping cart"></i>
-                <span class="cart-count">0</span>
+    <header class="header">
+      <div class="nav-header">
+        <div class="container nav-container">
+          <nav>
+            <div class="logo">
+              <img
+                src="src/images/pngtree-skin-care-logo-png-image_5774040.png"
+                alt="website logo"
+              />
+            </div>
+            <i class="fa-solid fa-bars menu"></i>
+            <div class="items">
+              <ul class="links">
+                <li class="link landing-link"><a href="#landing">Home</a></li>
+                <li class="link products-link">
+                  <a href="#products">Products</a>
+                </li>
+                <li class="link about-us-link">
+                  <a href="#about-us">About Us</a>
+                </li>
+                <li class="link services-link">
+                  <a href="#services">Services</a>
+                </li>
+                <li class="link reviews-link">
+                  <a href="#reviews">Reviews</a>
+                </li>
+                <li class="link contact-link">
+                  <a href="#contact">Contact Us</a>
+                </li>
+              </ul>
+              <div class="join">
+                <button class="btn login--btn">Login</button>
+                <div class="shopping-cart-icon">
+                  <i class="fa-solid fa-cart-shopping cart"></i>
+                  <span class="cart-count">0</span>
+                </div>
+                <div class="favorites">
+                  <i class="fa-solid fa-heart" id="favorites-icon"></i>
+                  <ul class="favorites-list">
+                    <div class="message">
+                      <p class="empty">No favorites yet!</p>
+                      <a href="#products" class="return-to-shop btn"
+                        >Return To Shop</a
+                      >
+                    </div>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
-        </nav>
+          </nav>
+        </div>
       </div>
       <div class="login-overlay overlay hidden">
         <div class="login-modal hidden">
@@ -104,10 +127,11 @@
             </div>
           </ul>
           <i class="fa-solid fa-xmark close-cart"></i>
+          <div class="cart-total"></div>
         </div>
       </div>
 
-      <div class="landing">
+      <div class="landing section" id="landing">
         <div class="container">
           <div class="content">
             <h2>Glow Naturally, Shine Confidently</h2>
@@ -115,7 +139,7 @@
               Discover our premium skincare essentials designed to nourish,
               protect, and reveal your skin's true radiance.
             </p>
-            <a href="#" class="btn start--btn">Start Shopping</a>
+            <a href="#products" class="btn start--btn">Start Shopping</a>
           </div>
           <div class="landing-image">
             <img
@@ -138,7 +162,7 @@
     </header>
 
     <main>
-      <section class="products section-1" id="products">
+      <section class="products section-1 section" id="products">
         <div class="container">
           <header>
             <h2>Products</h2>
@@ -161,7 +185,7 @@
                   src="/public/images/product1-compressed.webp"
                   class="product-image lazy-img"
                   alt="Image of product 1"
-                  data-src="public/images/product1.webp"
+                  data-src="images/product1.webp"
                   data-num="1"
                 />
               </div>
@@ -175,7 +199,7 @@
                   <p class="price">200 LE</p>
                 </div>
 
-                <i class="fa-regular fa-heart"></i>
+                <i class="fa-regular fa-heart" data-src="1"></i>
               </div>
             </div>
             <div class="product product-2">
@@ -191,7 +215,7 @@
                   src="/public/images/product2-compressed.webp"
                   class="product-image lazy-img"
                   alt="Image of product 2"
-                  data-src="/public/images/product2.webp"
+                  data-src="images/product2.webp"
                   data-num="2"
                 />
               </div>
@@ -204,7 +228,7 @@
                   <p class="price">350 LE</p>
                 </div>
 
-                <i class="fa-regular fa-heart"></i>
+                <i class="fa-regular fa-heart" data-src="2"></i>
               </div>
             </div>
             <div class="product product-3">
@@ -220,7 +244,7 @@
                   src="/public/images/product3-compressed.webp"
                   class="product-image lazy-img"
                   alt="Image of product 3"
-                  data-src="/public/images/product3.webp"
+                  data-src="images/product3.webp"
                   data-num="3"
                 />
               </div>
@@ -233,7 +257,7 @@
                   <p class="price">200 LE</p>
                 </div>
 
-                <i class="fa-regular fa-heart"></i>
+                <i class="fa-regular fa-heart" data-src="3"></i>
               </div>
             </div>
             <div class="product product-4">
@@ -249,7 +273,7 @@
                   src="/public/images/product4-compressed.webp"
                   class="product-image lazy-img"
                   alt="Image of product 4"
-                  data-src="/public/images/product4.webp"
+                  data-src="images/product4.webp"
                   data-num="4"
                 />
               </div>
@@ -262,7 +286,7 @@
                   <p class="price">150 LE</p>
                 </div>
 
-                <i class="fa-regular fa-heart"></i>
+                <i class="fa-regular fa-heart" data-src="4"></i>
               </div>
             </div>
             <div class="product product-5">
@@ -277,7 +301,7 @@
                 <img
                   src="/public/images/product5-compressed.webp"
                   class="product-image lazy-img"
-                  data-src="/public/images/product5.webp"
+                  data-src="images/product5.webp"
                   data-num="5"
                   alt="Image of product 5"
                 />
@@ -292,7 +316,7 @@
                   <p class="price">500 LE</p>
                 </div>
 
-                <i class="fa-regular fa-heart"></i>
+                <i class="fa-regular fa-heart" data-src="5"></i>
               </div>
             </div>
             <div class="product product-6">
@@ -308,7 +332,7 @@
                   src="/public/images/product6-compressed.webp"
                   class="product-image lazy-img"
                   alt="Image of product 6"
-                  data-src="/public/images/product6.webp"
+                  data-src="images/product6.webp"
                   data-num="6"
                 />
               </div>
@@ -320,52 +344,18 @@
                   <p class="name">Shower Gel</p>
                   <p class="price">150 LE</p>
                 </div>
-                <i class="fa-regular fa-heart"></i>
+                <i class="fa-regular fa-heart" data-src="6"></i>
               </div>
             </div>
           </div>
         </div>
-        <div class="overlay view-overlay hidden">
-          <!-- <div class="view-product">
-            <div class="view-image">
-              <img src="src/images/product1.webp" alt="product-1" />
-            </div>
-            <div class="view-info">
-              <i class="fa-solid fa-xmark close-view"></i>
-              <div class="text">
-                <h3 class="description">
-                  Moisturizer Cream with honey , yogurt and other natural
-                  ingredients - Offer
-                </h3>
-                <p class="price">200 LE</p>
-                <p class="tax">Tax Included</p>
-                <p class="remaining">6 pieces left , buy yours now!</p>
-                <div class="buttons">
-                  <div class="input-quantity">
-                    <i class="fa-solid fa-minus"></i>
-                    <input
-                      type="number"
-                      name="quantity"
-                      class="quantity"
-                      placeholder="1"
-                      data-current="1"
-                    />
-                    <i class="fa-solid fa-plus"></i>
-                  </div>
-
-                  <i class="fa-regular fa-heart"></i>
-                  <button class="add-to-cart btn">Add to cart</button>
-                </div>
-              </div>
-            </div>
-          </div> -->
-        </div>
+        <div class="overlay view-overlay hidden"></div>
       </section>
 
       <section class="makeup section section-2">
         <div class="container makeup-container">
           <header>
-            <h2>MAKEUP</h2>
+            <h2>Makeup</h2>
           </header>
           <div class="wrapper">
             <button class="fa-solid fa-angle-left slider-btn"></button>
@@ -380,22 +370,23 @@
                     ></button>
                   </div>
                   <img
-                    src="public/images/product7.webp"
+                    src="public/images/product7-compressed.webp"
                     class="product-image lazy-img"
                     alt="Image of product 7"
-                    data-src="public/images/product7.webp"
+                    data-src="images/product7.webp"
                     data-num="7"
                   />
                 </div>
                 <div class="text">
                   <div class="product-description">
-                    <p class="description hidden">
-                      Suitable for all skin types , Enjoy clean and shiny body!
+                    <p class="name">Makeup Set 1</p>
+
+                    <p class="description">
+                      Nude Brown Makeup Set with brushes
                     </p>
-                    <p class="name">Shower Gel</p>
-                    <p class="price">150 LE</p>
+                    <p class="price">600 LE</p>
                   </div>
-                  <i class="fa-regular fa-heart"></i>
+                  <i class="fa-regular fa-heart" data-src="7"></i>
                 </div>
               </div>
               <div class="product product-8 slide">
@@ -408,22 +399,21 @@
                     ></button>
                   </div>
                   <img
-                    src="public/images/product8.webp"
+                    src="public/images/product8-compressed.webp"
                     class="product-image lazy-img"
                     alt="Image of product 8"
-                    data-src="public/images/product8.webp"
+                    data-src="images/product8.webp"
                     data-num="8"
                   />
                 </div>
                 <div class="text">
                   <div class="product-description">
-                    <p class="description hidden">
-                      Suitable for all skin types , Enjoy clean and shiny body!
-                    </p>
-                    <p class="name">Shower Gel</p>
-                    <p class="price">150 LE</p>
+                    <p class="name">Makeup Set 2</p>
+
+                    <p class="description">All in One Set!</p>
+                    <p class="price">1100 LE</p>
                   </div>
-                  <i class="fa-regular fa-heart"></i>
+                  <i class="fa-regular fa-heart" data-src="8"></i>
                 </div>
               </div>
               <div class="product product-9 slide">
@@ -436,22 +426,21 @@
                     ></button>
                   </div>
                   <img
-                    src="public/images/product9.webp"
+                    src="public/images/product9-compressed.webp"
                     class="product-image lazy-img"
                     alt="Image of product 9"
-                    data-src="public/images/product9.webp"
+                    data-src="images/product9.webp"
                     data-num="9"
                   />
                 </div>
                 <div class="text">
                   <div class="product-description">
-                    <p class="description hidden">
-                      Suitable for all skin types , Enjoy clean and shiny body!
-                    </p>
-                    <p class="name">Shower Gel</p>
-                    <p class="price">150 LE</p>
+                    <p class="name">Makeup Set 3</p>
+                    <p class="description">Simple Set for daily use</p>
+
+                    <p class="price">400 LE</p>
                   </div>
-                  <i class="fa-regular fa-heart"></i>
+                  <i class="fa-regular fa-heart" data-src="9"></i>
                 </div>
               </div>
               <div class="product product-10 slide">
@@ -467,22 +456,21 @@
                     ></button>
                   </div>
                   <img
-                    src="public/images/product10.webp"
+                    src="public/images/product10-compressed.webp"
                     class="product-image lazy-img"
                     alt="Image of product 10"
-                    data-src="public/images/product10.webp"
+                    data-src="images/product10.webp"
                     data-num="10"
                   />
                 </div>
                 <div class="text">
                   <div class="product-description">
-                    <p class="description hidden">
-                      Suitable for all skin types , Enjoy clean and shiny body!
-                    </p>
-                    <p class="name">Shower Gel</p>
-                    <p class="price">150 LE</p>
+                    <p class="name">Makeup Set 4</p>
+                    <p class="description">Set with everything you need</p>
+
+                    <p class="price">900 LE</p>
                   </div>
-                  <i class="fa-regular fa-heart"></i>
+                  <i class="fa-regular fa-heart" data-src="10"></i>
                 </div>
               </div>
               <div class="product product-11 slide">
@@ -499,22 +487,21 @@
                   </div>
 
                   <img
-                    src="public/images/product11.webp"
+                    src="public/images/product11-compressed.webp"
                     class="product-image lazy-img"
                     alt="Image of product 11"
-                    data-src="public/images/product11.webp"
+                    data-src="images/product11.webp"
                     data-num="11"
                   />
                 </div>
                 <div class="text">
                   <div class="product-description">
-                    <p class="description hidden">
-                      Suitable for all skin types , Enjoy clean and shiny body!
-                    </p>
-                    <p class="name">Shower Gel</p>
-                    <p class="price">150 LE</p>
+                    <p class="name">Lipstick Set</p>
+                    <p class="description">Wonderful Lipstick shades!</p>
+
+                    <p class="price">750 LE</p>
                   </div>
-                  <i class="fa-regular fa-heart"></i>
+                  <i class="fa-regular fa-heart" data-src="11"></i>
                 </div>
               </div>
               <div class="product product-12 slide">
@@ -530,22 +517,21 @@
                     ></button>
                   </div>
                   <img
-                    src="public/images/product12.webp"
+                    src="public/images/product12-compressed.webp"
                     class="product-image lazy-img"
                     alt="Image of product 12"
-                    data-src="public/images/product12.webp"
+                    data-src="images/product12.webp"
                     data-num="12"
                   />
                 </div>
                 <div class="text">
                   <div class="product-description">
-                    <p class="description hidden">
-                      Suitable for all skin types , Enjoy clean and shiny body!
-                    </p>
-                    <p class="name">Shower Gel</p>
-                    <p class="price">150 LE</p>
+                    <p class="name">Concealer</p>
+                    <p class="description">All Shades of Concealer</p>
+
+                    <p class="price">350 LE</p>
                   </div>
-                  <i class="fa-regular fa-heart"></i>
+                  <i class="fa-regular fa-heart" data-src="12"></i>
                 </div>
               </div>
             </div>
@@ -556,7 +542,7 @@
         </div>
       </section>
 
-      <section class="about-us section-3" id="about-us">
+      <section class="about-us section-3 section" id="about-us">
         <header><h2>About Us</h2></header>
         <div class="about-us-container container">
           <div class="images">
@@ -607,7 +593,7 @@
         </div>
       </section>
 
-      <section class="recommendations section section-4">
+      <section class="recommendations section section-4" id="services">
         <div class="container">
           <div class="recommendations-container">
             <header><h2>Get Personalized Skincare Recommendations</h2></header>
@@ -644,7 +630,7 @@
         </div>
       </section>
 
-      <section class="testimonials section section-5">
+      <section class="testimonials section section-5" id="reviews">
         <div class="container">
           <header class="testimonials-title">
             <h2>Reviews</h2>
@@ -662,8 +648,7 @@
                     the results are amazing! My skin feels smoother, looks
                     brighter, and the redness I struggled with is almost gone.
                     The products are gentle but effective, and I've noticed a
-                    real improvement in both texture and clarity. I'm definitely
-                    a loyal customer now!
+                    real improvement. I'm definitely a loyal customer now!
                   </blockquote>
                 </div>
                 <div class="customer-info">
@@ -711,8 +696,7 @@
                     leaving my skin incredibly smooth and hydrated for hours.
                     The subtle scent is so soothing and adds a touch of luxury
                     to my routine. I've tried so many lotions, but this one
-                    truly stands out. My skin has never felt healthier. Highly
-                    recommend for anyone looking to pamper their skin daily!
+                    truly stands out. My skin has never felt healthier.
                   </blockquote>
                 </div>
                 <div class="customer-info">
@@ -732,17 +716,17 @@
           </div>
         </div>
       </section>
-      <section class="section section-6 contact-us">
+      <section class="section section-6 contact" id="contact">
         <header class="testimonials-title">
           <h2>Contact Us</h2>
         </header>
-        <div class="container contact-us-container">
+        <div class="container contact-container">
           <div class="card">
             <div class="icon-circle">
               <i class="fa-solid fa-location-dot"></i>
             </div>
             <h3 class="address">Address</h3>
-            <p>5 Street ,ElSheikh Zayed ,Giza, Egypt.</p>
+            <p>5 Street, ElSheikh Zayed, Giza, Egypt.</p>
           </div>
           <div class="card">
             <div class="icon-circle">
@@ -753,15 +737,130 @@
           </div>
           <div class="card">
             <div class="icon-circle">
-              <i class="fa-solid fa-email"></i>
+              <i class="fa-solid fa-envelope"></i>
             </div>
             <h3 class="email">Email</h3>
             <p>shinystore@gmail.com</p>
           </div>
         </div>
+        <div class="sending-message">
+          <div class="image-section"></div>
+          <div class="form-section">
+            <form class="contact-form">
+              <div class="form-header">
+                <h3>Get in Touch</h3>
+                <p>We'd love to hear from you. Send us a message!</p>
+              </div>
+
+              <div class="form-group">
+                <div class="input-container">
+                  <input
+                    type="text"
+                    class="form-control"
+                    required
+                    name="name"
+                  />
+                  <label>Name</label>
+                  <span class="focus-border"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="input-container">
+                  <input
+                    type="tel"
+                    class="form-control"
+                    required
+                    name="phone"
+                    pattern="[0-9]{10}"
+                  />
+                  <label>Phone Number</label>
+                  <span class="focus-border"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="input-container">
+                  <input
+                    type="email"
+                    class="form-control"
+                    required
+                    name="email"
+                  />
+                  <label>Email</label>
+                  <span class="focus-border"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="input-container">
+                  <textarea
+                    class="form-control"
+                    required
+                    name="message"
+                    rows="4"
+                  ></textarea>
+                  <label>Your Message</label>
+                  <span class="focus-border"></span>
+                </div>
+              </div>
+
+              <button type="submit" class="contact-submit">Send Meesage</button>
+            </form>
+          </div>
+        </div>
       </section>
     </main>
-    <script type="module" src="/src/js/script.js"></script>
-    <!-- <script type="module" src="/src/js/recommendProducts.js"></script> -->
+    <footer class="section">
+      <div class="container footer-container">
+        <div class="footer-info">
+          <div class="footer-about">
+            <h3>Shiny Store</h3>
+            <p>
+              Discover our premium skincare essentials designed to nourish,
+              protect, and reveal your skin's true radiance.
+            </p>
+            <div class="icons">
+              <i class="fa-brands fa-facebook"></i>
+              <i class="fa-brands fa-x-twitter"></i>
+              <i class="fa-brands fa-instagram"></i>
+            </div>
+          </div>
+          <div class="footer-links">
+            <h3>Links</h3>
+            <ul class="links">
+              <li class="link"><a class="active-link">Home</a></li>
+              <li class="link">
+                <a href="#products">Products</a>
+              </li>
+              <li class="link"><a href="#about-us">About Us</a></li>
+              <li class="link"><a href="#services">Services</a></li>
+              <li class="link"><a href="#reviews">Reviews</a></li>
+              <li class="link"><a href="#contact">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h3>Have a Question?</h3>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <p class="address">5 Street, ElSheikh Zayed, Giza, Egypt.</p>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <p class="phone">0123456789</p>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <p class="email">shinystore@gmail.com</p>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <p>© Shiny Store by Shahd Raafat. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+    <div class="toast">Added to cart successfully!</div>
+    <script type="module" src="/src/js/script.js" defer></script>
   </body>
 </html>

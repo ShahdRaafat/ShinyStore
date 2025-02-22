@@ -20,7 +20,7 @@ const updateSlider = function () {
   visibleSlides = getVisibleSlides();
   let slideWidth = productSlides[0].offsetWidth + 20;
 
-  slider.style.transition = "transform 0.4s ease-in-out";
+  slider.style.transition = "transform 0.5s ease-in-out";
   slider.style.transform = `translateX(-${firstSlide * slideWidth}px)`;
 };
 updateSlider();

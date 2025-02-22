@@ -5,6 +5,14 @@ nav {
   justify-content: space-between;
   padding: 15px 0px;
   position: relative;
+  font-weight: bolder;
+}
+.nav-header.sticky {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.95);
+  width: 100%;
+  z-index: 100;
+  top: 0;
 }
 .logo {
   flex-basis: 60px;
@@ -17,7 +25,7 @@ nav {
   display: flex;
   flex: 1;
 }
-.links {
+nav .links {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,12 +33,12 @@ nav {
   flex: 70%;
   height: 60px;
 }
-.links li {
+nav .links li {
   cursor: pointer;
   transition: 0.4s;
   text-align: center;
 }
-.links li a {
+nav .links li a {
   color: var(--blackColor);
 }
 .active-link {
@@ -48,7 +56,7 @@ nav {
   border: none;
   padding: 10px;
   height: 40px;
-  width: 100px;
+  width: 100px !important;
   border-radius: 40px;
   background-color: var(--hotpinkColor);
   color: var(--whiteColor);
@@ -56,16 +64,32 @@ nav {
   transition: 0.3s;
 }
 
-.cart {
+.cart,
+#favorites-icon {
   font-size: 24px;
   color: var(--hotpinkColor);
   transition: 0.4s;
   cursor: pointer;
 }
+.shopping-cart-icon {
+  position: relative;
+}
+.cart-count {
+  position: absolute;
+  top: -16px;
+  right: -10px;
+  background-color: black;
+  color: white;
+  font-size: 12px;
+  border-radius: 50%;
+  padding: 5px 8px;
+  font-weight: bold;
+}
 .menu {
   cursor: pointer;
 }
-.cart:hover {
+.cart:hover,
+#favorites-icon:hover {
   color: var(--blackColor);
 }
 @media (min-width: 768px) {
@@ -85,7 +109,7 @@ nav {
     position: absolute;
     top: 100%;
     padding: 20px;
-    background-color: var(--blackColor);
+    background-color: var(--lightPinkColor);
     /* align-items: center; */
   }
   ul.links.show {
@@ -108,7 +132,7 @@ nav {
   filter: blur(0px);
   position: fixed;
   top: 0;
-  z-index: 55;
+  z-index: 110;
 }
 .login-modal {
   width: 300px;

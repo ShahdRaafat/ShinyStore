@@ -126,3 +126,16 @@
     margin-top: 15px;
   }
 }
+@media (max-width: 768px) {
+  .recommended-products {
+    flex-direction: column;
+  }
+}
+@media (max-width: 450px) {
+  .recommendations h2 {
+    font-size: 25px;
+  }
+}
+.recommendations .add-to-cart {
+  width: 120px;
+}
