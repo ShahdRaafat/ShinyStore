@@ -270,8 +270,8 @@ const closeCart = function () {
   // shoppingOverlay.classList.add("not-visible");
 };
 
-cart = [];
-favorites = [];
+let cart = [];
+let favorites = [];
 //extract product data based on which button i have clicked
 const getProductData = function (button) {
   const productElement = button.closest(".product");
