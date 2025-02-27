@@ -39,7 +39,7 @@ nav .links li {
   text-align: center;
 }
 nav .links li a {
-  color: var(--blackColor);
+  color: inherit;
 }
 .active-link {
   color: var(--hotpinkColor) !important;

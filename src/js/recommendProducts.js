@@ -6,55 +6,61 @@ const weatherIcon = document.querySelector(".weather-icon");
 const temperature = document.querySelector(".temp");
 const humidityField = document.querySelector(".humidity");
 const tip = document.querySelector(".tip");
-import sunscreen from "../images/sunscreen.webp";
-import aloevera from "../images/aloevera.webp";
-import waterproof from "../images/waterproof.webp";
-import serum from "../images/serum.webp";
-import bodyButter from "../images/bodyButter.webp";
-import lipBalm from "../images/lipBalm.webp";
+// import sunscreen from "../images/sunscreen.webp";
+// import aloevera from "../images/aloevera.webp";
+// import waterproof from "../images/waterproof.webp";
+// import serum from "../images/serum.webp";
+// import bodyButter from "../images/bodyButter.webp";
+// import lipBalm from "../images/lipBalm.webp";
 //Weather Product recommendation
 const weatherProducts = {
   sunny: [
     {
       name: "Sunscreen SPF 50",
+      shortName: "Sunscreen",
       description:
         "Lightweight, broad-spectrum protection perfect for sunny days.",
       price: "500 LE",
-      image: sunscreen,
+      image: "../images/productSunscreen.webp",
     },
     {
       name: "Aloevera Gel",
+      shortName: "Aloevera",
       description: "Natural made aloevera gel to protect from sun damage.",
       price: "200 LE",
-      image: aloevera,
+      image: "../images/productAloevera.webp",
     },
   ],
   rainy: [
     {
       name: "Waterproof Moisturizer",
+      shortName: "Waterproof",
       description: "Long-lasting hydration that stays put in humid conditions.",
       price: "300 LE",
-      image: waterproof,
+      image: "../images/productWaterproof.webp",
     },
     {
       name: "Anti-Frizz Serum",
+      shortName: "Serum",
       description: "Keep your hair smooth and protected in humid weather.",
       price: "350 LE",
-      image: serum,
+      image: "../images/productSerum.webp",
     },
   ],
   cold: [
     {
       name: "Body Butter",
+      shortName: "BodyButter",
       description: "Deep moisturizing butter for cold weather protection.",
       price: "400 LE",
-      image: bodyButter,
+      image: "../images/productBodyButter.webp",
     },
     {
       name: "Lip Balm",
+      shortName: "LipBalm",
       description: "Protect your Lips from harsh winter conditions.",
       price: "120 LE",
-      image: lipBalm,
+      image: "../images/productLipBalm.webp",
     },
   ],
 };
@@ -102,7 +108,7 @@ const generateProductMarkup = function (weatherCategory) {
                       </p>
                       <div class="last-row">
                         <p class="price">${product.price}</p>
-                        <button class="add-to-cart btn">Add to Cart</button>
+                        <button class="add-to-cart btn" data-src=${product.shortName}>Add to Cart</button>
                       </div>
                     </div>
                   </div>

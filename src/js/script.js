@@ -82,6 +82,7 @@ const activateFunction = function (entries) {
   const entry = entries[0];
   if (!entry.isIntersecting) return;
   activateLink(entry.target);
+  console.log("sahhd");
 };
 const activateObserver = new IntersectionObserver(activateFunction, {
   root: null,
@@ -278,7 +279,7 @@ const getProductData = function (button) {
   const ModalElement = button.closest(".view-product");
 
   const num = button.dataset.src;
-  const imgUrl = `public/images/product${num}.webp`;
+  const imgUrl = `/images/product${num}.webp`;
 
   const name =
     productElement?.querySelector(".name").textContent ||
