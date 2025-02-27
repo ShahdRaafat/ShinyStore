@@ -4,8 +4,8 @@
   "description": "Skincare Store ",
   "default": "index.html",
   "scripts": {
-    "start": "rm -rf dist && cp -r public dist && parcel index.html",
-    "build": "rm -rf dist && cp -r public dist && parcel build index.html --dist-dir ./dist"
+    "start": " parcel index.html",
+    "build": "rmdir /s /q dist && xcopy /E /I public dist && parcel build index.html --dist-dir ./dist"
   },
   "author": "shahd",
   "license": "ISC",
