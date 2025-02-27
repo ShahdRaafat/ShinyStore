@@ -6,12 +6,7 @@ const weatherIcon = document.querySelector(".weather-icon");
 const temperature = document.querySelector(".temp");
 const humidityField = document.querySelector(".humidity");
 const tip = document.querySelector(".tip");
-// import sunscreen from "../images/sunscreen.webp";
-// import aloevera from "../images/aloevera.webp";
-// import waterproof from "../images/waterproof.webp";
-// import serum from "../images/serum.webp";
-// import bodyButter from "../images/bodyButter.webp";
-// import lipBalm from "../images/lipBalm.webp";
+
 //Weather Product recommendation
 const weatherProducts = {
   sunny: [
@@ -21,14 +16,14 @@ const weatherProducts = {
       description:
         "Lightweight, broad-spectrum protection perfect for sunny days.",
       price: "500 LE",
-      image: "../images/productSunscreen.webp",
+      image: "images/productSunscreen.webp",
     },
     {
       name: "Aloevera Gel",
       shortName: "Aloevera",
       description: "Natural made aloevera gel to protect from sun damage.",
       price: "200 LE",
-      image: "../images/productAloevera.webp",
+      image: "images/productAloevera.webp",
     },
   ],
   rainy: [
@@ -37,14 +32,14 @@ const weatherProducts = {
       shortName: "Waterproof",
       description: "Long-lasting hydration that stays put in humid conditions.",
       price: "300 LE",
-      image: "../images/productWaterproof.webp",
+      image: "images/productWaterproof.webp",
     },
     {
       name: "Anti-Frizz Serum",
       shortName: "Serum",
       description: "Keep your hair smooth and protected in humid weather.",
       price: "350 LE",
-      image: "../images/productSerum.webp",
+      image: "images/productSerum.webp",
     },
   ],
   cold: [
@@ -53,14 +48,14 @@ const weatherProducts = {
       shortName: "BodyButter",
       description: "Deep moisturizing butter for cold weather protection.",
       price: "400 LE",
-      image: "../images/productBodyButter.webp",
+      image: "images/productBodyButter.webp",
     },
     {
       name: "Lip Balm",
       shortName: "LipBalm",
       description: "Protect your Lips from harsh winter conditions.",
       price: "120 LE",
-      image: "../images/productLipBalm.webp",
+      image: "images/productLipBalm.webp",
     },
   ],
 };
